@@ -1,0 +1,13 @@
+.OurAssessmentApp{
+   overflow: hidden;
+    background-image: linear-gradient(0, #27aa6d, #335d9c);
+    min-height: 100vh;
+}
+
+.AppHeader{
+    font-family: 'Times New Roman', serif;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 5vh;
+    text-shadow: 3px 3px 4px #3a3a3a;
+}
