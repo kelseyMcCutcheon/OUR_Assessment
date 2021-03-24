@@ -1,35 +1,22 @@
 import React from 'react';
+import {useState, useEffect} from 'react';
 import $ from 'jquery';
 import './NumberSense.css';
 
 
 function NumberSense(){
-    let count = 0;
+    const [question, setQuestion] = useState('Question Error');
 
-    function ques_count(){
-        $.ajax({
-            type : "POST",
-            url : '/question',
-            dataType: "json",
-            data: JSON.stringify(count),
-            contentType: 'application/json;charset=UTF-8',
-            success: function (data) {
-                console.log(data);
-                }
-            });
-        count++;
-    }
+  useEffect(() => {
+    fetch('/numberSense').then(res => res.json()).then(data => {
+      setQuestion(data.result);
+    });
+    }, []);
 
     return(
         <div className="Test">
             <div>
-                {ques_count()}
-            </div>
-            <div className="form">
-                <form action="http://localhost:5000/check" method="get">
-                    Answer: <input type="text" name="answer"/>
-                    <input type="submit" value="Submit"/>
-                </form>
+                {question}
             </div>
         </div>
     )
