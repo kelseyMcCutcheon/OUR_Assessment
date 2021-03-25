@@ -38,49 +38,41 @@ def answer(test_ans):
     else:
         return "Incorrect!"
 '''
+data = pd.read_csv("NumberSenseQuestions.csv")
 
 
-# allow both GET and POST requests
-@app.route('/test', methods=['GET', 'POST'])
-def test():
-    data = pd.read_csv("NumberSenseQuestions.csv")
+# send 5 questions to front end
+@app.route('/questions', methods=['GET', 'POST'])
+def questions():
     question1 = data.QuestionD1[1]
     question2 = data.QuestionD1[2]
     question3 = data.QuestionD1[3]
     question4 = data.QuestionD1[4]
     question5 = data.QuestionD1[5]
-    """
-    answer1 = request.form.get('answer1')
-    answer2 = request.form.get('answer2')
-    answer3 = request.form.get('answer3')
-    answer4 = request.form.get('answer3')
-    answer5 = request.form.get('answer3')"""
 
-    # handle the POST request
+    return {'question1': question1,
+            'question2': question2,
+            'question3': question3,
+            'question4': question4,
+            'question5': question5}
+
+
+# ask frontend for 5 answers, does not evaluate those answers yet
+@app.route('/answers', methods=['GET', 'POST'])
+def answers():
+    answer1 = request.form.get("answer1")
+    answer2 = request.form.get("answer2")
+    answer3 = request.form.get("answer3")
+    answer4 = request.form.get("answer4")
+    answer5 = request.form.get("answer5")
     if request.method == 'POST':
-        return '''
-                  <h2>Correct Answer is: {}</h2>
-                  <h2>Correct Answer is: {}</h2>
-                  <h2>Correct Answer is: {}</h2>
-                  <h2>Correct Answer is: {}</h2>
-                  <h2>Correct Answer is: {}</h2>
-                  '''.format(eval(question1), eval(question2), eval(question3), eval(question4), eval(question5))
-
-    # otherwise handle the GET request
-    return '''
-           <form method="POST">
-               <div><label>{}: <input type="text" name="answer1"></label></div>
-               <div><label>{}: <input type="text" name="answer2"></label></div>
-               <div><label>{}: <input type="text" name="answer3"></label></div>
-               <div><label>{}: <input type="text" name="answer4"></label></div>
-               <div><label>{}: <input type="text" name="answer5"></label></div>
-               <input type="submit" value="Submit">
-           </form>'''.format(question1, question2, question3, question4, question5)
-
-
-@app.route('/numberSense')
-def number_sense():
-    return {'result': number_sense_test()}
+        return {'answer1': answer1,
+                'answer2': answer2,
+                'answer3': answer3,
+                'answer4': answer4,
+                'answer5': answer5}
+    else:
+        return "Request Error"
 
 
 if __name__ == '__main__':
