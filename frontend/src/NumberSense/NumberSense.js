@@ -41,6 +41,10 @@ function NumberSense(){
     useEffect(() => {
         fetch('/answers').then(res => res.json()).then(data => {
       setAnswer1(data.question1);
+      setAnswer2(data.question2);
+      setAnswer3(data.question3);
+      setAnswer4(data.question4);
+      setAnswer5(data.question5);
     });
     }, []);
 
@@ -49,7 +53,7 @@ function NumberSense(){
         <html>
             <div className="Test">
                 <p>
-                    <form action="http://localhost:5000/answers" method="POST">
+                    <form action="/answers" method="POST">
                         {question1}: <input type="text" name="answer1" ></input><br></br>
                         {question2}: <input type="text" name="answer2" ></input><br></br>
                         {question3}: <input type="text" name="answer3" ></input><br></br>
