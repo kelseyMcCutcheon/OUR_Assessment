@@ -7,37 +7,6 @@ app = Flask(__name__)
 CORS(app)
 
 
-def number_sense_test():
-    data = pd.read_csv("NumberSenseQuestions.csv")
-    ques_and_ans = []
-    for question in data.QuestionD1:
-        '''
-        ques_dict = {
-            "question": question,
-            "answer": answer(question)
-        }
-        print(ques_dict)
-        ques_and_ans.append(ques_dict)
-        '''
-        ques_and_ans.append(question)
-        user_answer = request.args.get('user_answer')
-    return ques_and_ans
-
-
-def answer(test_ans):
-    return test_ans
-
-
-'''
-def answer(test_ans):
-    print(test_ans)
-    correct = eval(test_ans)
-    user_answer = request.args.get('user_answer')
-    if user_answer == correct:
-        return "Correct!"
-    else:
-        return "Incorrect!"
-'''
 data = pd.read_csv("NumberSenseQuestions.csv")
 
 
