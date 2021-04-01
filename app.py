@@ -44,37 +44,22 @@ data = pd.read_csv("NumberSenseQuestions.csv")
 # iterate through csv questions, return dictionary
 # of question num and question
 def iterate_questions():
-    ques_list = {}
-    num = 1
+    ques_list = []
     for x in data.QuestionD1:
-        ques_num = 'question' + str(num)
-        num += 1
-        ques_list[ques_num] = x
+        ques_list.append(x)
     return ques_list
+
+
+# send the frontend the number of questions
+@app.route('/num')
+def num():
+    return {'result': len(data)}
 
 
 # get questions from iterating csv
 @app.route('/questions')
 def questions():
-    return iterate_questions()
-
-
-'''
-# send 5 questions to front end
-@app.route('/questions', methods=['GET', 'POST'])
-def questions():
-    question1 = data.QuestionD1[1]
-    question2 = data.QuestionD1[2]
-    question3 = data.QuestionD1[3]
-    question4 = data.QuestionD1[4]
-    question5 = data.QuestionD1[5]
-
-    return {'question1': question1,
-            'question2': question2,
-            'question3': question3,
-            'question4': question4,
-            'question5': question5}
-'''
+    return jsonify(iterate_questions())
 
 
 # ask frontend for 5 answers, does not evaluate those answers yet
