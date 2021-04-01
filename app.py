@@ -39,12 +39,14 @@ def answers():
     answer3 = request.form.get("answer3")
     answer4 = request.form.get("answer4")
     answer5 = request.form.get("answer5")
+    answer6 = request.form.get("answer6")
     if request.method == 'POST':
         return {'answer1': answer1,
                 'answer2': answer2,
                 'answer3': answer3,
                 'answer4': answer4,
-                'answer5': answer5}
+                'answer5': answer5,
+                'answer6': answer6}
     else:
         return "Request Error"
 
