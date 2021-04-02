@@ -9,7 +9,6 @@ CORS(app)
 
 data = pd.read_csv("NumberSenseQuestions.csv")
 
-
 # iterate through csv questions, return dictionary
 # of question num and question
 def iterate_questions():
@@ -29,6 +28,39 @@ def num():
 @app.route('/questions')
 def questions():
     return jsonify(iterate_questions())
+
+
+# get first question separate since we always start
+# at topic 1, medium level
+# use index 1 of D1 for now
+@app.route('/question1')
+def question1():
+    question1 = data.QuestionD1[1]
+    return {'result': question1}
+
+
+# request answer of previous question,
+# evaulate in sep function, return next question
+@app.route('/nextQuestion', methods=['GET', 'POST'])
+def nextQuestion():
+    user_answer = request.form.get("user_answer")
+    if request.method == 'POST':
+        return evaluate(user_answer)
+    else:
+        return "Request Error"
+
+
+# TEST ADAPTATION ALGORITHM
+def test_adapt_alg(user_answer):
+    pass
+
+
+def evaluate(user_answer):
+    correct = eval(data.QuestionD1[1]) # will have to be changed when change to random num generator
+    if str(correct) == user_answer:
+        return {'result': 'True'}
+    else:
+        return {'result': 'False'}
 
 
 # ask frontend for 5 answers, does not evaluate those answers yet

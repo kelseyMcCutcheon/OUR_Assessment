@@ -6,6 +6,20 @@ import './NumberSense.css';
 function NumberSense(){
     const [quesNum, setQuesNum] = useState(0);
 
+    const [question1, setQuestion1] = useState("Question1 Error");
+    useEffect(() => {
+        fetch('/question1').then(res => res.json()).then(data => {
+          setQuestion1(data.result);
+        });
+    }, []);
+
+    const [nextQuestion, setNextQuestion] = useState('Next Question Error');
+    useEffect(() => {
+        fetch('/nextQuestion').then(res => res.json()).then(data => {
+          setNextQuestion(data.result);
+        });
+    }, []);
+
     useEffect(() => {
     fetch('/num').then(res => res.json()).then(data => {
       setQuesNum(data.result);
@@ -41,18 +55,12 @@ function NumberSense(){
         <html>
             <div className="Test">
                 <p>
-                    {question}<br></br>
-                    {question[1]}
-                    <form action="/answers" method="POST">
-                        {question[1]}: <input type="text" name="answer1" ></input><br></br>
-                        {question[2]}: <input type="text" name="answer2" ></input><br></br>
-                        {question[3]}: <input type="text" name="answer3" ></input><br></br>
-                        {question[4]}: <input type="text" name="answer4" ></input><br></br>
-                        {question[5]}: <input type="text" name="answer5" ></input><br></br>
-                        {question[6]}: <input type="text" name="answer6" ></input><br></br>
+                    {question1}
+                    <form action="/nextQuestion" method="POST">
+                        {question1}: <input type="text" name="user_answer" ></input><br></br>
                         <input type="submit" value="Submit"></input>
                     </form>
-
+                    {nextQuestion}
                 </p>
             </div>
         </html>
