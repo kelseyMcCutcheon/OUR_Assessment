@@ -10,52 +10,6 @@ CORS(app)
 
 data = pd.read_csv("NumberSenseQuestions.csv")
 
-
-# iterate through csv questions, return dictionary
-# of question num and question
-def iterate_questions():
-    ques_list = []
-    for x in data.QuestionD1:
-        ques_list.append(x)
-    return ques_list
-
-
-# send the frontend the number of questions
-@app.route('/num')
-def num():
-    return {'result': len(data)}
-
-
-# get questions from iterating csv
-@app.route('/questions')
-def questions():
-    return jsonify(iterate_questions())
-
-
-@app.route('/tempquery', methods=['GET', 'POST'])
-def tempQuery():
-
-    info = request.json
-
-    answer = info["answer"]
-    numRight = info["numRight"]
-    numWrong = info["numWrong"]
-
-    print("ANS: " + str(answer) + " || W: " + str(numWrong) + " || R:" + str(numRight))
-
-    return jsonify("this is TEMPORARY")
-
-@app.route('/getQuestion', methods=['GET', 'POST'])
-def getQuestion():
-    information = json.loads(request.data)
-    print("QINFO")
-    print(information)
-
-    qNum = information["QuestionNumber"]
-
-    return jsonify(data.QuestionD1[qNum])
-
-
 # ask frontend for 5 answers, does not evaluate those answers yet
 @app.route('/answers', methods=['GET', 'POST'])
 def answers():
@@ -74,6 +28,53 @@ def answers():
                 'answer6': answer6}
     else:
         return "Request Error"
+
+# iterate through csv questions, return dictionary
+# of question num and question
+def iterate_questions():
+    ques_list = []
+    for x in data.QuestionD1:
+        ques_list.append(x)
+    return ques_list
+
+
+# send the frontend the number of questions
+@app.route('/num')
+def num():
+    return {'result': len(data)}
+
+# get questions from iterating csv
+@app.route('/questions')
+def questions():
+    return jsonify(iterate_questions())
+
+
+@app.route('/tempquery', methods=['GET', 'POST'])
+def tempQuery():
+
+    info = request.json
+
+    unit = info["unit"]
+    answer = info["answer"]
+    numRight = info["numRight"]
+    numWrong = info["numWrong"]
+
+    print("Unit: " + unit + " || ANS: " + answer + " || W: " + str(numWrong) + " || R:" + str(numRight))
+
+    return jsonify("this is TEMPORARY")
+
+@app.route('/getQuestion', methods=['GET', 'POST'])
+def getQuestion():
+    information = json.loads(request.data)
+    print("QINFO")
+    print(information)
+
+    qNum = information["QuestionNumber"]
+
+    return jsonify(data.QuestionD1[qNum])
+
+
+
 
 
 if __name__ == '__main__':

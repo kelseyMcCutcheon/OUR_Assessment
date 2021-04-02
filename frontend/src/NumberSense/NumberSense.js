@@ -4,24 +4,25 @@ import './NumberSense.css';
 
 
 function NumberSense(){
-    const [quesNum, setQuesNum] = useState(0);
+    
+    //const [quesNum, setQuesNum] = useState(0);
     const [CurrentQuestionNum, setCurrentQuestion] = useState(1);
 
     const [numQWrong, setNumQWrong] = useState(0);
     const [numQRight, setNumQRight] = useState(0);
 
-    useEffect(() => {
-    fetch('/num').then(res => res.json()).then(data => {
-      setQuesNum(data.result);
-    });
-    }, []);
+    // useEffect(() => {
+    // fetch('/num').then(res => res.json()).then(data => {
+    //   setQuesNum(data.result);
+    // });
+    // }, []);
 
-    const [question, setQuestion] = useState('Question Error');
-    useEffect(() => {
-        fetch('/questions').then(res => res.json()).then(data => {
-          setQuestion(data);
-        });
-    }, []);
+    // const [question, setQuestion] = useState('Question Error');
+    // useEffect(() => {
+    //     fetch('/questions').then(res => res.json()).then(data => {
+    //       setQuestion(data);
+    //     });
+    // }, []);
 
     
 
@@ -29,6 +30,7 @@ function NumberSense(){
 
         //Setting up query to flask
         const info = {
+            "unit": "numberSense",
             "answer": tempAnswer,
             "currentQuestion": CurrentQuestionNum,
             "numWrong": numQWrong,
@@ -63,7 +65,7 @@ function NumberSense(){
         .then(res => res.json()).then(data => {
             setTempQuestion(data);
         });
-        }, []);
+        });
     
 
     //{question}
