@@ -55,6 +55,7 @@ function NumberSense(){
         <html>
             <div className="Test">
                 <p>
+                    {question}
                     {question1}
                     <form action="/nextQuestion" method="POST">
                         {question1}: <input type="text" name="user_answer" ></input><br></br>

@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from flask import request
 import pandas as pd
+from random import randint
 
 app = Flask(__name__)
 CORS(app)
@@ -9,14 +10,37 @@ CORS(app)
 
 data = pd.read_csv("NumberSenseQuestions.csv")
 
-# iterate through csv questions, return dictionary
-# of question num and question
+# iterate through csv questions
+# for now just implements random
+# num generator in all questions
 def iterate_questions():
     ques_list = []
-    for x in data.QuestionD1:
-        ques_list.append(x)
+    for x in data.QuestionFormat:
+        ques_list.append(random_num(x))
+
+    print(ques_list)
     return ques_list
 
+
+# randomly generate numbers for variables
+def random_num(question):
+    if "X" in question and "Y" in question:
+        x_num = randint(1,10)
+        y_num = randint(1,10)
+        new_ques = question.replace("X", str(x_num))
+        new_ques = new_ques.replace("Y", str(y_num))
+        return new_ques
+    elif "X" in question:
+        x_num = randint(1,10)
+        new_ques = question.replace("X", str(x_num))
+        return new_ques
+    elif "Y" in question:
+        y_num = randint(1,10)
+        new_ques = question.replace("Y", str(y_num))
+        return new_ques
+    else:
+        new_ques = question
+        return new_ques
 
 # send the frontend the number of questions
 @app.route('/num')
@@ -46,6 +70,8 @@ def nextQuestion():
     user_answer = request.form.get("user_answer")
     if request.method == 'POST':
         return evaluate(user_answer)
+    elif request.method == "GET":
+        return evaluate(user_answer)
     else:
         return "Request Error"
 
@@ -63,6 +89,8 @@ def evaluate(user_answer):
         return {'result': 'False'}
 
 
+
+'''
 # ask frontend for 5 answers, does not evaluate those answers yet
 @app.route('/answers', methods=['GET', 'POST'])
 def answers():
@@ -81,7 +109,7 @@ def answers():
                 'answer6': answer6}
     else:
         return "Request Error"
-
+'''
 
 if __name__ == '__main__':
     app.run(debug=True)
