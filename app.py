@@ -30,6 +30,12 @@ def num():
 def questions():
     return jsonify(iterate_questions())
 
+@app.route('/tempquery', methods=['GET', 'POST'])
+def tempQuery():
+    info = request.get_json()["info"]
+    print(info)
+    return jsonify("this is TEMPORARY: " + info["answer"])
+
 
 # ask frontend for 5 answers, does not evaluate those answers yet
 @app.route('/answers', methods=['GET', 'POST'])
