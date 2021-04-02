@@ -32,10 +32,6 @@ function NumberSense(){
         .then(data => {console.log(data)})
     }
 
-    const changeHandler = (e) => {
-        setInfo({...info, "answer": e.target.value})
-    }
-
     return(
         <div className="Test">
                 <p>
@@ -48,7 +44,7 @@ function NumberSense(){
                             type="text" 
                             name="answer"
                             value={info["answer"]}
-                            onChange = {changeHandler}
+                            onChange = {e => setInfo({...info, "answer": e.target.value})}
                             />
                             <br/>
                         <input type="submit" value="Submit"></input>
