@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from flask import request
 import pandas as pd
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -30,11 +31,29 @@ def num():
 def questions():
     return jsonify(iterate_questions())
 
+
 @app.route('/tempquery', methods=['GET', 'POST'])
 def tempQuery():
-    info = request.get_json()["info"]
-    print(info)
-    return jsonify("this is TEMPORARY: " + info["answer"])
+
+    info = request.json
+
+    answer = info["answer"]
+    numRight = info["numRight"]
+    numWrong = info["numWrong"]
+
+    print("ANS: " + str(answer) + " || W: " + str(numWrong) + " || R:" + str(numRight))
+
+    return jsonify("this is TEMPORARY")
+
+@app.route('/getQuestion', methods=['GET', 'POST'])
+def getQuestion():
+    information = json.loads(request.data)
+    print("QINFO")
+    print(information)
+
+    qNum = information["QuestionNumber"]
+
+    return jsonify(data.QuestionD1[qNum])
 
 
 # ask frontend for 5 answers, does not evaluate those answers yet

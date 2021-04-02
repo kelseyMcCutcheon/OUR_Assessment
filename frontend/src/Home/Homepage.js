@@ -11,7 +11,7 @@ function Homepage(){
         <div className="Home">
             <h1>HOMEPAGE</h1>
             <Link to='/testSelect'>
-                <Button class="btn btn-primary" type="submit">Select</Button>
+                <Button className="btn btn-primary" type="submit">Select</Button>
             </Link>
         </div>
     )

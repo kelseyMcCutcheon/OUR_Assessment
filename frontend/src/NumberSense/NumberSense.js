@@ -5,7 +5,10 @@ import './NumberSense.css';
 
 function NumberSense(){
     const [quesNum, setQuesNum] = useState(0);
-    const [info, setInfo] = useState({'answer': ""});
+    const [CurrentQuestionNum, setCurrentQuestion] = useState(1);
+
+    const [numQWrong, setNumQWrong] = useState(0);
+    const [numQRight, setNumQRight] = useState(0);
 
     useEffect(() => {
     fetch('/num').then(res => res.json()).then(data => {
@@ -20,31 +23,64 @@ function NumberSense(){
         });
     }, []);
 
+    
+
     const submit = (e) => {
+
+        //Setting up query to flask
+        const info = {
+            "answer": tempAnswer,
+            "currentQuestion": CurrentQuestionNum,
+            "numWrong": numQWrong,
+            "numRight": numQRight
+        };
+
         console.log(info);
         e.preventDefault()
         fetch('/tempquery', {
             method: 'POST',
-            body: JSON.stringify({info}),
+            body: JSON.stringify(info),
             headers: {'Content-Type': 'application/json' },
         })
         .then(res => res.json())
-        .then(data => {console.log(data)})
+        .then(data => {
+            console.log(data)
+        })
     }
+
+    const [tempAnswer, setTempAnswer] = useState("");
+    const [tempQuestion, setTempQuestion] = useState("");
+    useEffect(() => {
+
+        const info = {
+            "QuestionNumber": CurrentQuestionNum
+        };
+        
+        fetch('/getQuestion', {
+            method: 'POST',
+            body: JSON.stringify(info),
+        })
+        .then(res => res.json()).then(data => {
+            setTempQuestion(data);
+        });
+        }, []);
+    
+
+    //{question}
+    //<br/>
+    //{question[1]}
 
     return(
         <div className="Test">
                 <p>
-                    {question}<br></br>
-                    {question[1]}
+                    {tempQuestion}
                 </p>
-                <form onSubmit={submit}>
-                        {question[1]}: 
+                <form onSubmit={submit}> 
                         <input 
                             type="text" 
                             name="answer"
-                            value={info["answer"]}
-                            onChange = {e => setInfo({...info, "answer": e.target.value})}
+                            value={tempAnswer}
+                            onChange = {e => setTempAnswer(e.target.value)}
                             />
                             <br/>
                         <input type="submit" value="Submit"></input>
