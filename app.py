@@ -2,7 +2,9 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from flask import request
 import pandas as pd
+import json
 from random import randint
+from TestAdaptationAlgorithm import adaptAlgo
 
 
 app = Flask(__name__)
@@ -23,46 +25,6 @@ info = {
     "correct_count": 0,
     "incorrect_count": 0
 }
-
-
-def adaptAlgo(correct, questionNumber, numWrong, numRight):
-    section = int(questionNumber.split('.')[1]) - 1
-    difficulty = int(questionNumber.split('.')[2]) - 1
-    print(questionNumber)
-
-    nextQuestion = 0
-
-    if (correct):
-        if difficulty == 0:
-            if numRight >= EASY_RIGHT:
-                difficulty = 1
-        elif difficulty == 1:
-            if numRight >= MED_RIGHT:
-                difficulty = 2
-        else:
-            if numRight + numWrong >= HARD_LIMIT:
-                # print("Moving on to the next section!")
-                section += 1
-                difficulty = 1
-    else:
-        if difficulty == 0:
-            if numWrong >= EASY_WRONG:
-                # print("Moving on to the next section!")
-                section += 1
-                difficulty = 1
-        elif difficulty == 1:
-            if numWrong >= MED_WRONG:
-                difficulty = 0
-        else:
-            if numWrong + numRight >= HARD_LIMIT:
-                # print("Moving on to the next section!")
-                section += 1
-                difficulty = 1
-            elif numWrong >= HARD_WRONG:
-                difficulty = 2
-
-    nextQuestion = (section * 3) + difficulty
-    return nextQuestion
 
 
 # randomly generate numbers for variables
@@ -105,6 +67,30 @@ def question():
     return info
 
 
+@app.route('/tempquery', methods=['GET', 'POST'])
+def tempQuery():
+
+    info = json.loads(request.json)
+    print(info)
+    #unit = info["unit"]
+    #answer = info["answer"]
+
+   # print("ANS: " + answer)
+
+    return jsonify("this is TEMPORARY")
+
+
+@app.route('/getQuestion', methods=['GET', 'POST'])
+def getQuestion():
+    information = json.loads(request.data)
+    print("QINFO")
+    print(information)
+
+    qNum = information["QuestionNumber"]
+
+    return jsonify(data.QuestionD1[qNum])
+
+
 # request answer of previous question,
 # evaluate in sep function, return next question
 @app.route('/nextQuestion', methods=['GET', 'POST'])
@@ -121,8 +107,9 @@ def nextQuestion():
 
 def evaluate(user_answer, user_ques):
     correct = eval(str(user_ques)) == user_answer
-    nextQuestionIndex = adaptAlgo(correct, info["number"], info["incorrect_count"], info["correct_count"])
-    return "PLACEHOLDER"
+    nextQuestionIndex = data.QuestionFormat[adaptAlgo.getnextQuestion(correct)]
+    info["question"] = nextQuestionIndex
+    return info
 
 
 if __name__ == '__main__':
