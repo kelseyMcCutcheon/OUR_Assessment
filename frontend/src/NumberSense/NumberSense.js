@@ -45,16 +45,12 @@ function NumberSense(){
     var user_ques = ques
 
     return(
-        <html>
-            <div className="Test">
-                <p>
-                    <form action="/nextQuestion" method="POST">
-                        {num}  {ques}: <input type="text" name="user_answer" ></input><br></br>
-                        <input type="submit" value="Submit" name="count"></input>
-                    </form>
-                </p>
-            </div>
-        </html>
+    <div className="Test">
+      <form action="/nextQuestion" method="POST">
+          {num}  {ques}: <input type="text" name="user_answer" ></input><br/>
+          <input type="submit" value="Submit" name="count"></input>
+      </form>
+    </div>
     )
 }
 export default NumberSense;
