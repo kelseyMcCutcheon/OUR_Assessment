@@ -4,8 +4,6 @@ import './NumberSense.css';
 
 
 function NumberSense(){
-    const [quesNum, setQuesNum] = useState(0);
-    const [count, setCount] = useState(0);
 
     const [num, setNum] = useState('Question Number Error')
     useEffect(() => {
@@ -33,13 +31,6 @@ function NumberSense(){
     fetch('/num').then(res => res.json()).then(data => {
       setQuesNum(data.result);
     });
-    }, []);
-
-    const [question, setQuestion] = useState('Question Error');
-    useEffect(() => {
-        fetch('/questions').then(res => res.json()).then(data => {
-          setQuestion(data);
-        });
     }, []);
 
     var user_ques = ques

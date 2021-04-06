@@ -28,7 +28,6 @@ info = {
 def adaptAlgo(correct, questionNumber, numWrong, numRight):
     section = questionNumber.split('.')[1]
     difficulty = questionNumber.split('.')[2]
-    print(difficulty)
 
     nextQuestion = 0
 
