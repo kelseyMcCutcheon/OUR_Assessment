@@ -26,9 +26,9 @@ info = {
 
 
 def adaptAlgo(correct, questionNumber, numWrong, numRight):
-    section = questionNumber.split('.')[1]
-    difficulty = questionNumber.split('.')[2]
-    print(difficulty)
+    section = int(questionNumber.split('.')[1]) - 1
+    difficulty = int(questionNumber.split('.')[2]) - 1
+    print(questionNumber)
 
     nextQuestion = 0
 
@@ -120,8 +120,9 @@ def nextQuestion():
 
 
 def evaluate(user_answer, user_ques):
-    correct = eval(str(user_ques))
-    adaptAlgo(correct, info["number"], info["incorrect_count"], info["correct_count"])
+    correct = eval(str(user_ques)) == user_answer
+    nextQuestionIndex = adaptAlgo(correct, info["number"], info["incorrect_count"], info["correct_count"])
+    return "PLACEHOLDER"
 
 
 if __name__ == '__main__':
