@@ -1,3 +1,4 @@
+DIFFICULTY = 1
 EASY_WRONG = 3
 EASY_RIGHT = 2
 MED_WRONG = 2
@@ -6,40 +7,75 @@ HARD_WRONG = 2
 HARD_LIMIT = 3
 
 
-def adaptAlgo(correct, questionNumber, numWrong, numRight):
-    section = int(questionNumber / 3)
-    difficulty = questionNumber % 3
+class adaptAlgo:
+    difficulty = DIFFICULTY
+    easyWrong = EASY_WRONG
+    easyRight = EASY_RIGHT
+    medWrong = MED_WRONG
+    medRight = MED_RIGHT
+    hardWrong = HARD_WRONG
+    hardLimit = HARD_LIMIT
 
-    nextQuestion = 0
-
-    if (correct):
-        if difficulty == 0:
-            if numRight >= EASY_RIGHT:
-                difficulty = 1
-        elif difficulty == 1:
-            if numRight >= MED_RIGHT:
-                difficulty = 2
+    def reset(self):
+        self.difficulty = DIFFICULTY
+        self.easyWrong = EASY_WRONG
+        self.easyRight = EASY_RIGHT
+        self.medWrong = MED_WRONG
+        self.medRight = MED_RIGHT
+        self.hardWrong = HARD_WRONG
+        self.hardLimit = HARD_LIMIT
+    
+    def correctAnswer(self):
+        if self.difficulty == 0:
+            if self.easyRight <= 0:
+                self.difficulty = 1
+                self.easyRight = 2
+            else:
+                self.easyRight -= 1
+        elif self.difficulty == 1:
+            if self.medRight <= 0:
+                self.difficulty = 2
+                self.medRight = 3
+            else:
+                self.medRight -= 1
         else:
-            if numRight + numWrong >= HARD_LIMIT:
-                # print("Moving on to the next section!")
-                section += 1
-                difficulty = 1
-    else:
-        if difficulty == 0:
-            if numWrong >= EASY_WRONG:
-                # print("Moving on to the next section!")
-                section += 1
-                difficulty = 1
-        elif difficulty == 1:
-            if numWrong >= MED_WRONG:
-                difficulty = 0
-        else:
-            if numWrong + numRight >= HARD_LIMIT:
-                # print("Moving on to the next section!")
-                section += 1
-                difficulty = 1
-            elif numWrong >= HARD_WRONG:
-                difficulty = 2
+            if self.hardLimit <= 0:
+                print("Moving on to the next section!")
+                self.section += 1
+                self.reset()
+            else:
+                self.hardLimit -= 1
 
-    nextQuestion = (section * 3) + difficulty
-    return nextQuestion
+    def incorrectAnswer(self):
+        if self.difficulty == 0:
+            if self.easyWrong <= 0:
+                print("Moving on to the next section!")
+                self.section += 1
+                self.reset()
+            else:
+                self.easyWrong -= 1
+        elif self.difficulty == 1:
+            if self.medWrong <= 0:
+                self.difficulty = 0
+                self.medWrong = 2
+            else:
+                self.medWrong -= 1
+        else:
+            if self.hardLimit <= 0:
+                print("Moving on to the next section!")
+                self.section += 1
+                self.reset()
+            elif self.hardWrong <= 0:
+                self.difficulty = 2
+                self.hardWrong = 3
+            else:
+                self.hardWrong -= 1
+                self.hardLimit -= 1
+
+    def getNextQuestion(self, correct:bool) -> int:
+        nextQuestion = 0
+        if correct:
+            self.correctAnswer()
+        else:
+            self.incorrectAnswer()
+        return ((self.section * 3) + self.difficulty)
