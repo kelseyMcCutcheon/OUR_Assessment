@@ -7,12 +7,16 @@ from random import randint
 app = Flask(__name__)
 CORS(app)
 
-
 data = pd.read_csv("NumberSenseQuestions.csv")
 
 info = {
     "number": "num 1",
-    "question": " "
+    "question": " ",
+    "difficulty_index": 1,
+    "correct_count": 0,
+    "incorrect_count": 0,
+    "unit": " ",
+    "topic": " "
 }
 
 
@@ -29,22 +33,23 @@ def iterate_questions():
 # randomly generate numbers for variables
 def random_num(question):
     if "X" in question and "Y" in question:
-        x_num = randint(1,10)
-        y_num = randint(1,10)
+        x_num = randint(1, 10)
+        y_num = randint(1, 10)
         new_ques = question.replace("X", str(x_num))
         new_ques = new_ques.replace("Y", str(y_num))
         return new_ques
     elif "X" in question:
-        x_num = randint(1,10)
+        x_num = randint(1, 10)
         new_ques = question.replace("X", str(x_num))
         return new_ques
     elif "Y" in question:
-        y_num = randint(1,10)
+        y_num = randint(1, 10)
         new_ques = question.replace("Y", str(y_num))
         return new_ques
     else:
         new_ques = question
         return new_ques
+
 
 # send the frontend the number of questions
 @app.route('/num')
@@ -63,11 +68,13 @@ def questions():
 # use index 1 of D1 for now
 @app.route('/question')
 def question():
-    ques = data.QuestionFormat[1]
-    ques_num = data.QuestionID[1]
+    ques = data.QuestionFormat[info["difficulty_index"]]
+    ques_num = data.QuestionID[info["difficulty_index"]]
     user_ques = random_num(ques)
     info["question"] = user_ques
     info["number"] = ques_num
+    info["unit"] = info["number"].split('.')[1]
+    info["topic"] = info["number"].split('.')[2]
     return info
 
 
@@ -77,7 +84,6 @@ def question():
 def nextQuestion():
     user_answer = request.form.get("user_answer")
     user_ques = info["question"]
-    print(info)
     if request.method == 'POST':
         return evaluate(user_answer, user_ques)
     elif request.method == "GET":
@@ -88,38 +94,42 @@ def nextQuestion():
 
 # TEST ADAPTATION ALGORITHM
 def test_adapt_alg(user_answer):
-    pass
+    if user_answer:
+        info["correct_count"] += 1  # up correct answer count
+        # check if correct count is high enough to move up a difficulty level
+        # 2 right for now, change?
+        if info["correct_count"] == 2:
+            info["difficulty_index"] += 1  # up difficulty level by 1
+            # reset correct and incorrect counts for new topic
+            info["correct_count"] = 0
+            info["incorrect_count"] = 0
+        return question()
+    elif user_answer == "false":
+        info["incorrect_count"] -= 1  # up incorrect answer count
+        # check if incorrect count is high enough to move down a difficulty level
+        # 2 wrong for now, change?
+        if info["incorrect_count"] == 2:
+            info['difficulty_index'] -= 1  # down a difficulty level by 1
+            # reset correct and incorrect counts for new topic
+            info["correct_count"] = 0
+            info["incorrect_count"] = 0
+        # check if student has reached hard limit for questions in topic
+        # if yes, move student on to next topic
+        # re-evaluate hard limits
+        if info["topic_count"] == 10:
+            print(info["number"].split('.'))
+        return question()
+    else:
+        return "Evaluation Error"
 
 
 def evaluate(user_answer, user_ques):
-    correct = eval(str(user_ques))
+    correct = eval(user_ques)
     if str(correct) == user_answer:
-        return {'result': 'True'}
+        return test_adapt_alg(True)
     else:
-        return {'result': 'False'}
+        return test_adapt_alg(False)
 
-
-
-'''
-# ask frontend for 5 answers, does not evaluate those answers yet
-@app.route('/answers', methods=['GET', 'POST'])
-def answers():
-    answer1 = request.form.get("answer1")
-    answer2 = request.form.get("answer2")
-    answer3 = request.form.get("answer3")
-    answer4 = request.form.get("answer4")
-    answer5 = request.form.get("answer5")
-    answer6 = request.form.get("answer6")
-    if request.method == 'POST':
-        return {'answer1': answer1,
-                'answer2': answer2,
-                'answer3': answer3,
-                'answer4': answer4,
-                'answer5': answer5,
-                'answer6': answer6}
-    else:
-        return "Request Error"
-'''
 
 if __name__ == '__main__':
     app.run(debug=True)

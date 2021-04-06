@@ -14,7 +14,7 @@ function NumberSense(){
         });
     }, []);
 
-    const [ques, setQues] = useState("Question1 Error");
+    const [ques, setQues] = useState("Question Error");
     useEffect(() => {
         fetch('/question').then(res => res.json()).then(data => {
           setQues(data.question);
