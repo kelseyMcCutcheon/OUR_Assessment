@@ -4,30 +4,65 @@ from flask import request
 import pandas as pd
 from random import randint
 
+
 app = Flask(__name__)
 CORS(app)
 
 data = pd.read_csv("NumberSenseQuestions.csv")
 
+EASY_WRONG = 3
+EASY_RIGHT = 2
+MED_WRONG = 2
+MED_RIGHT = 2
+HARD_WRONG = 2
+HARD_LIMIT = 3
+
 info = {
     "number": "num 1",
     "question": " ",
-    "difficulty_index": 1,
     "correct_count": 0,
-    "incorrect_count": 0,
-    "unit": " ",
-    "topic": " "
+    "incorrect_count": 0
 }
 
 
-# iterate through csv questions
-# for now just implements random
-# num generator in all questions
-def iterate_questions():
-    ques_list = []
-    for x in data.QuestionFormat:
-        ques_list.append(random_num(x))
-    return ques_list
+def adaptAlgo(correct, questionNumber, numWrong, numRight):
+    section = questionNumber.split('.')[1]
+    difficulty = questionNumber.split('.')[2]
+    print(difficulty)
+
+    nextQuestion = 0
+
+    if (correct):
+        if difficulty == 0:
+            if numRight >= EASY_RIGHT:
+                difficulty = 1
+        elif difficulty == 1:
+            if numRight >= MED_RIGHT:
+                difficulty = 2
+        else:
+            if numRight + numWrong >= HARD_LIMIT:
+                # print("Moving on to the next section!")
+                section += 1
+                difficulty = 1
+    else:
+        if difficulty == 0:
+            if numWrong >= EASY_WRONG:
+                # print("Moving on to the next section!")
+                section += 1
+                difficulty = 1
+        elif difficulty == 1:
+            if numWrong >= MED_WRONG:
+                difficulty = 0
+        else:
+            if numWrong + numRight >= HARD_LIMIT:
+                # print("Moving on to the next section!")
+                section += 1
+                difficulty = 1
+            elif numWrong >= HARD_WRONG:
+                difficulty = 2
+
+    nextQuestion = (section * 3) + difficulty
+    return nextQuestion
 
 
 # randomly generate numbers for variables
@@ -57,24 +92,16 @@ def num():
     return {'result': len(data)}
 
 
-# get questions from iterating csv
-@app.route('/questions')
-def questions():
-    return jsonify(iterate_questions())
-
-
 # get first question separate since we always start
 # at topic 1, medium level
 # use index 1 of D1 for now
 @app.route('/question')
 def question():
-    ques = data.QuestionFormat[info["difficulty_index"]]
-    ques_num = data.QuestionID[info["difficulty_index"]]
+    ques = data.QuestionFormat[1]
+    ques_num = data.QuestionID[1]
     user_ques = random_num(ques)
     info["question"] = user_ques
     info["number"] = ques_num
-    info["unit"] = info["number"].split('.')[1]
-    info["topic"] = info["number"].split('.')[2]
     return info
 
 
@@ -92,43 +119,9 @@ def nextQuestion():
         return "Request Error"
 
 
-# TEST ADAPTATION ALGORITHM
-def test_adapt_alg(user_answer):
-    if user_answer:
-        info["correct_count"] += 1  # up correct answer count
-        # check if correct count is high enough to move up a difficulty level
-        # 2 right for now, change?
-        if info["correct_count"] == 2:
-            info["difficulty_index"] += 1  # up difficulty level by 1
-            # reset correct and incorrect counts for new topic
-            info["correct_count"] = 0
-            info["incorrect_count"] = 0
-        return question()
-    elif user_answer == "false":
-        info["incorrect_count"] -= 1  # up incorrect answer count
-        # check if incorrect count is high enough to move down a difficulty level
-        # 2 wrong for now, change?
-        if info["incorrect_count"] == 2:
-            info['difficulty_index'] -= 1  # down a difficulty level by 1
-            # reset correct and incorrect counts for new topic
-            info["correct_count"] = 0
-            info["incorrect_count"] = 0
-        # check if student has reached hard limit for questions in topic
-        # if yes, move student on to next topic
-        # re-evaluate hard limits
-        if info["topic_count"] == 10:
-            print(info["number"].split('.'))
-        return question()
-    else:
-        return "Evaluation Error"
-
-
 def evaluate(user_answer, user_ques):
-    correct = eval(user_ques)
-    if str(correct) == user_answer:
-        return test_adapt_alg(True)
-    else:
-        return test_adapt_alg(False)
+    correct = eval(str(user_ques))
+    adaptAlgo(correct, info["number"], info["incorrect_count"], info["correct_count"])
 
 
 if __name__ == '__main__':
