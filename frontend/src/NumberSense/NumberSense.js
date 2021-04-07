@@ -5,67 +5,44 @@ import $ from 'jquery';
 
 function NumberSense(){
 
-    const [CurrentQuestionNum, setCurrentQuestion] = useState(1);
-
     const [num, setNum] = useState('Question Number Error')
+    const [ques1, setQues1] = useState("Question 1 Error");
     useEffect(() => {
-        fetch('/question').then(res => res.json()).then(data => {
+        fetch('/questionOne').then(res => res.json()).then(data => {
           setNum(data.number);
+          setQues1(data.question);
         });
     }, []);
 
-    const [ques, setQues] = useState("Question Error");
-    useEffect(() => {
+    const [tempQuestion, setTempQuestion] = useState(ques1);
+        useEffect(() => {
         fetch('/question').then(res => res.json()).then(data => {
-          setQues(data.question);
+          setTempQuestion(data.result);
         });
     }, []);
 
-
-    const [nextQuestion, setNextQuestion] = useState('Next Question Error');
-    useEffect(() => {
-        fetch('/nextQuestion').then(res => res.json()).then(data => {
-          setNextQuestion(data.result);
-        });
-    }, []);
-
+    const [tempAnswer, setTempAnswer] = useState(" ");
     const submit = (e) => {
-        console.log(tempAnswer);
+        const info = {'number': num, 'tempAnswer': tempAnswer, 'question': ques1};
+
         e.preventDefault()
-        fetch('/tempquery', {
+        fetch('/answer', {
             method: 'POST',
-            body: JSON.stringify(tempAnswer),
+            body: JSON.stringify(info),
             headers: {'Content-Type': 'application/json' },
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            setTempAnswer(data.answer)
+            setTempQuestion(data.question)
         })
     }
-
-
-    const [tempAnswer, setTempAnswer] = useState("");
-    const [tempQuestion, setTempQuestion] = useState("");
-    useEffect(() => {
-
-        const info = {
-            "QuestionNumber": CurrentQuestionNum
-        };
-
-        fetch('/getQuestion', {
-            method: 'POST',
-            body: JSON.stringify(info),
-        })
-        .then(res => res.json()).then(data => {
-            setTempQuestion(data);
-        });
-        });
 
     return(
     <div className="Test">
 
     <form onSubmit={submit}>
-          {num}  {ques}: <input
+          {num}  {tempQuestion}: <input
                             type="text"
                             name="answer"
                             value={tempAnswer}
@@ -73,6 +50,7 @@ function NumberSense(){
                             />
           <input type="submit" value="Submit" name="count"></input>
       </form>
+        {tempAnswer}<br></br>
     </div>
     )
 }

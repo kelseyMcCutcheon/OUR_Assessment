@@ -21,9 +21,7 @@ HARD_LIMIT = 3
 
 info = {
     "number": "num 1",
-    "question": " ",
-    "correct_count": 0,
-    "incorrect_count": 0
+    "question": " "
 }
 
 
@@ -57,8 +55,8 @@ def num():
 # get first question separate since we always start
 # at topic 1, medium level
 # use index 1 of D1 for now
-@app.route('/question')
-def question():
+@app.route('/questionOne')
+def questionOne():
     ques = data.QuestionFormat[1]
     ques_num = data.QuestionID[1]
     user_ques = random_num(ques)
@@ -67,28 +65,16 @@ def question():
     return info
 
 
-@app.route('/tempquery', methods=['GET', 'POST'])
-def tempQuery():
-
-    info = json.loads(request.json)
-    print(info)
-    #unit = info["unit"]
-    #answer = info["answer"]
-
-   # print("ANS: " + answer)
-
-    return jsonify("this is TEMPORARY")
+@app.route('/answer', methods=['GET', 'POST'])
+def answer():
+    info = json.loads(request.data)
+    question = '3+14'
+    return {'answer': info["tempAnswer"], 'question': question}
 
 
-@app.route('/getQuestion', methods=['GET', 'POST'])
-def getQuestion():
-    information = json.loads(request.data)
-    print("QINFO")
-    print(information)
-
-    qNum = information["QuestionNumber"]
-
-    return jsonify(data.QuestionD1[qNum])
+@app.route('/question', methods=['GET', 'POST'])
+def question():
+    return {'result': info['question']}
 
 
 # request answer of previous question,
@@ -107,7 +93,8 @@ def nextQuestion():
 
 def evaluate(user_answer, user_ques):
     correct = eval(str(user_ques)) == user_answer
-    nextQuestionIndex = data.QuestionFormat[adaptAlgo.getnextQuestion(correct)]
+    nextQuestionIndex = data.QuestionFormat[3]
+    #nextQuestionIndex = data.QuestionFormat[adaptAlgo.getNextQuestion(correct)]
     info["question"] = nextQuestionIndex
     return info
 
