@@ -6,18 +6,10 @@ import json
 from random import randint
 from TestAdaptationAlgorithm import adaptAlgo
 
-
 app = Flask(__name__)
 CORS(app)
 
 data = pd.read_csv("NumberSenseQuestions.csv")
-
-EASY_WRONG = 3
-EASY_RIGHT = 2
-MED_WRONG = 2
-MED_RIGHT = 2
-HARD_WRONG = 2
-HARD_LIMIT = 3
 
 info = {
     "number": "num 1",
@@ -69,12 +61,7 @@ def questionOne():
 def answer():
     frontInfo = json.loads(request.data)
     newInfo = evaluate(frontInfo['answer'], frontInfo['question'])
-    
-    # print("----FRONT INFO----")
-    # print(frontInfo)
-    # print("----NEW INFO----")
-    # print(newInfo)
-    
+
     return {'answer': frontInfo["answer"], 'question': str(newInfo['question']), 'number': str(newInfo['num'])}
 
 
@@ -82,26 +69,13 @@ def answer():
 def question():
     return {'result': info['question']}
 
-'''
-# request answer of previous question,
-# evaluate in sep function, return next question
-@app.route('/nextQuestion', methods=['GET', 'POST'])
-def nextQuestion():
-    user_answer = request.form.get("user_answer")
-    user_ques = info["question"]
-    if request.method == 'POST':
-        return evaluate(user_answer, user_ques)
-    elif request.method == "GET":
-        return evaluate(user_answer, user_ques)
-    else:
-        return "Request Error"
-'''
 
 adapt = adaptAlgo()
 
+
 def evaluate(user_answer, user_ques):
     user_correct = str(eval(str(user_ques))) == user_answer
-    
+
     # print("----EVAL----")
     # print("USER Q: " + user_ques + " || USER ANS: " + user_answer + " || EXP ANS: " + str(eval(str(user_ques))))
     # print(user_correct)
