@@ -70,7 +70,7 @@ def answer():
     frontInfo = json.loads(request.data)
     newInfo = evaluate(frontInfo['answer'], frontInfo['question'])
     print(newInfo)
-    return {'answer': frontInfo["answer"], 'question': str(newInfo)}
+    return {'answer': frontInfo["answer"], 'question': str(newInfo['question']), 'number': str(newInfo['num'])}
 
 
 @app.route('/question', methods=['GET', 'POST'])
@@ -94,11 +94,13 @@ def nextQuestion():
 
 
 def evaluate(user_answer, user_ques):
-    correct = eval(str(user_ques)) == user_answer
+    user_correct = eval(str(user_ques)) == user_answer
     print(user_answer, user_ques)
-    question = "WHYYY"
-    #newQuestion = adaptAlgo.getNextQuestion(correct)
-    return question
+    adapt = adaptAlgo()
+    index = adapt.getNextQuestion(user_correct)
+    newQuestion = random_num(data.QuestionFormat[index])
+    newInfo = {'question': newQuestion, 'num': data.QuestionID[index]}
+    return newInfo
 
 
 if __name__ == '__main__':

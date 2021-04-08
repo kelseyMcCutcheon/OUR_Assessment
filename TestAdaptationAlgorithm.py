@@ -8,6 +8,7 @@ HARD_LIMIT = 3
 
 
 class adaptAlgo:
+    section = 0
     difficulty = DIFFICULTY
     easyWrong = EASY_WRONG
     easyRight = EASY_RIGHT
@@ -15,6 +16,8 @@ class adaptAlgo:
     medRight = MED_RIGHT
     hardWrong = HARD_WRONG
     hardLimit = HARD_LIMIT
+
+    nextQuestion = 0
 
     def reset(self):
         self.difficulty = DIFFICULTY

@@ -14,10 +14,10 @@ function NumberSense(){
         });
     }, []);
 
-    const [tempQuestion, setTempQuestion] = useState(ques1);
+    const [question, setQuestion] = useState(ques1);
         useEffect(() => {
         fetch('/question').then(res => res.json()).then(data => {
-          setTempQuestion(data.result);
+          setQuestion(data.result);
         });
     }, []);
 
@@ -34,7 +34,8 @@ function NumberSense(){
         .then(res => res.json())
         .then(data => {
             setAnswer(data.answer)
-            setTempQuestion(data.question)
+            setQuestion(data.question)
+            setNum(data.number)
         })
     }
 
@@ -42,7 +43,7 @@ function NumberSense(){
     <div className="Test">
 
     <form onSubmit={submit}>
-          {num}  {tempQuestion}: <input
+          {num}  {question}: <input
                             type="text"
                             name="answer"
                             value={answer}
