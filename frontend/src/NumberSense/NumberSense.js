@@ -22,8 +22,9 @@ function NumberSense(){
     }, []);
 
     const [answer, setAnswer] = useState(" ");
+    
     const submit = (e) => {
-        const info = {'number': num, 'answer': answer, 'question': ques1};
+        const info = {'number': num, 'answer': answer, 'question': question};
 
         e.preventDefault()
         fetch('/answer', {

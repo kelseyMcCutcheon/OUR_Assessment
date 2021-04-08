@@ -69,7 +69,12 @@ def questionOne():
 def answer():
     frontInfo = json.loads(request.data)
     newInfo = evaluate(frontInfo['answer'], frontInfo['question'])
-    print(newInfo)
+    
+    # print("----FRONT INFO----")
+    # print(frontInfo)
+    # print("----NEW INFO----")
+    # print(newInfo)
+    
     return {'answer': frontInfo["answer"], 'question': str(newInfo['question']), 'number': str(newInfo['num'])}
 
 
@@ -92,11 +97,15 @@ def nextQuestion():
         return "Request Error"
 '''
 
+adapt = adaptAlgo()
 
 def evaluate(user_answer, user_ques):
-    user_correct = eval(str(user_ques)) == user_answer
-    print(user_answer, user_ques)
-    adapt = adaptAlgo()
+    user_correct = str(eval(str(user_ques))) == user_answer
+    
+    # print("----EVAL----")
+    # print("USER Q: " + user_ques + " || USER ANS: " + user_answer + " || EXP ANS: " + str(eval(str(user_ques))))
+    # print(user_correct)
+
     index = adapt.getNextQuestion(user_correct)
     newQuestion = random_num(data.QuestionFormat[index])
     newInfo = {'question': newQuestion, 'num': data.QuestionID[index]}
