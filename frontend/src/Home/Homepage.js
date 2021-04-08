@@ -1,6 +1,5 @@
 
 import { Link } from 'react-router-dom';
-import {useState, useEffect} from 'react';
 import './Homepage.css';
 import {Button} from "react-bootstrap";
 
@@ -9,9 +8,11 @@ function Homepage(){
 
     return(
         <div className="Home">
-            <h1>HOMEPAGE</h1>
+            <header id='Title'>
+                <h1>Welcome!</h1>
+            </header>
             <Link to='/testSelect'>
-                <Button className="btn btn-primary" type="submit">Select</Button>
+                <Button className="btn btn-primary HomepageButton" type="submit">Start (Y)OUR Assessment</Button>
             </Link>
         </div>
     )
