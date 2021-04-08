@@ -21,9 +21,9 @@ function NumberSense(){
         });
     }, []);
 
-    const [tempAnswer, setTempAnswer] = useState(" ");
+    const [answer, setAnswer] = useState(" ");
     const submit = (e) => {
-        const info = {'number': num, 'tempAnswer': tempAnswer, 'question': ques1};
+        const info = {'number': num, 'answer': answer, 'question': ques1};
 
         e.preventDefault()
         fetch('/answer', {
@@ -33,7 +33,7 @@ function NumberSense(){
         })
         .then(res => res.json())
         .then(data => {
-            setTempAnswer(data.answer)
+            setAnswer(data.answer)
             setTempQuestion(data.question)
         })
     }
@@ -45,12 +45,12 @@ function NumberSense(){
           {num}  {tempQuestion}: <input
                             type="text"
                             name="answer"
-                            value={tempAnswer}
-                            onChange = {e => setTempAnswer(e.target.value)}
+                            value={answer}
+                            onChange = {e => setAnswer(e.target.value)}
                             />
           <input type="submit" value="Submit" name="count"></input>
       </form>
-        {tempAnswer}<br></br>
+        {answer}<br></br>
     </div>
     )
 }

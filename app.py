@@ -67,16 +67,17 @@ def questionOne():
 
 @app.route('/answer', methods=['GET', 'POST'])
 def answer():
-    info = json.loads(request.data)
-    question = '3+14'
-    return {'answer': info["tempAnswer"], 'question': question}
+    frontInfo = json.loads(request.data)
+    newInfo = evaluate(frontInfo['answer'], frontInfo['question'])
+    print(newInfo)
+    return {'answer': frontInfo["answer"], 'question': str(newInfo)}
 
 
 @app.route('/question', methods=['GET', 'POST'])
 def question():
     return {'result': info['question']}
 
-
+'''
 # request answer of previous question,
 # evaluate in sep function, return next question
 @app.route('/nextQuestion', methods=['GET', 'POST'])
@@ -89,14 +90,15 @@ def nextQuestion():
         return evaluate(user_answer, user_ques)
     else:
         return "Request Error"
+'''
 
 
 def evaluate(user_answer, user_ques):
     correct = eval(str(user_ques)) == user_answer
-    nextQuestionIndex = data.QuestionFormat[3]
-    #nextQuestionIndex = data.QuestionFormat[adaptAlgo.getNextQuestion(correct)]
-    info["question"] = nextQuestionIndex
-    return info
+    print(user_answer, user_ques)
+    question = "WHYYY"
+    #newQuestion = adaptAlgo.getNextQuestion(correct)
+    return question
 
 
 if __name__ == '__main__':
