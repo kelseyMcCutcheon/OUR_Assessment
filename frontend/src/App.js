@@ -6,6 +6,7 @@ import NumberSense from "./NumberSense/NumberSense";
 import './OurAssessment.css';
 
 import Homepage from "./Home/Homepage";
+import AboutPage from "./AboutPage/About";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Switch>
               <Route exact path="/" component={Homepage} />
               <Route path='/testSelect' component={Select} />
+              <Route path='/aboutpage' component={AboutPage} />
               <Route path='/numberSense' component={NumberSense} />
           </Switch>
       </Router>

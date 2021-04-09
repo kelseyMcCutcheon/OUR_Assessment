@@ -14,6 +14,10 @@ function Homepage(){
             <Link to='/testSelect'>
                 <Button className="btn btn-primary HomepageButton" type="submit">Start (Y)OUR Assessment</Button>
             </Link>
+            <br/>
+            <Link to='/aboutpage'>
+                <Button className="btn btn-primary HomepageButton" type="submit">About OUR Assessment</Button>
+            </Link>
         </div>
     )
 }

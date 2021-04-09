@@ -1,0 +1,42 @@
+.AboutPage{
+    font-family: 'Times New Roman';
+    color: white;
+}
+
+.AboutHeader{
+    margin-top: 5%;
+    margin-bottom: 2%;
+    text-align: center;
+    font-size: 4vh;
+}
+
+.AboutText{
+    font-size: 110%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align:left;
+}
+
+.AboutBackButton{
+    
+    position: fixed;
+    left: 3%;
+    top: 3%;
+
+    font-family: cursive;
+    font-size: 150%;
+    background-image:linear-gradient(to right, rgb(46, 141, 153), rgb(30, 150, 114));
+    
+    border-style:dotted;
+    border-width: 5px;
+    border-radius: 12px;
+    border-color: rgb(70, 170, 173);
+    border-top-color: rgb(40, 163, 212);
+    border-bottom-color: rgb(49, 170, 134);
+
+    outline-style:none;
+    margin: 2vw;
+    
+    height: 5vh;
+    width: 15vh;
+}
