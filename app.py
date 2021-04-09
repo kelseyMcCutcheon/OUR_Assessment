@@ -16,27 +16,94 @@ info = {
     "question": " "
 }
 
+backEndInfo = {
+    "question_id" : "",
+    "question_index" : 1,
+    "question" : "",
+    "question_for_human": "",
+    "answer" : "",
+    "user_answer" : ""
+}
+
+variables = {
+        "X": 0,
+        "Y": 0,
+        "Z": 0,
+        "W": 0
+    }
+
+def replaceForHuman(forHuman, question) -> str:
+    if "XX" in forHuman:
+        return forHuman.replace("XX", question)
+        print(forHuman)
+    else:
+        print("MARKER NOT FOUND: " + forHuman)
+        return question
 
 # randomly generate numbers for variables
-def random_num(question):
-    if "X" in question and "Y" in question:
-        x_num = randint(1, 10)
-        y_num = randint(1, 10)
-        new_ques = question.replace("X", str(x_num))
-        new_ques = new_ques.replace("Y", str(y_num))
-        return new_ques
-    elif "X" in question:
-        x_num = randint(1, 10)
-        new_ques = question.replace("X", str(x_num))
-        return new_ques
-    elif "Y" in question:
-        y_num = randint(1, 10)
-        new_ques = question.replace("Y", str(y_num))
-        return new_ques
-    else:
-        new_ques = question
-        return new_ques
+def newVariables( rangeMin=1, rangeMax=9) -> dict:
+    for x in variables:
+        newInt = randint(rangeMin,rangeMax)
+        if newInt == variables[x]:
+            while newInt == variables[x]:
+                newInt = randint(rangeMin,rangeMax)
+        variables[x] = newInt
+    #print(variables)
+    return variables
 
+def evalString(question) -> str:
+    result = ""
+    parts = question.split(";")
+    for x in parts:
+        tmp = x
+        if "$" in x:
+            tmp = tmp.replace("$", "")
+            tmp = str(eval(tmp))
+        result+=tmp
+    return result
+
+def replaceVariables(question) ->str:
+    for x in variables:
+        if x in question:
+            question = question.replace(x, str(variables[x]))
+    return question
+
+def evaluateAnswer(correctAnswer, userAnswer) -> bool:
+    if userAnswer == correctAnswer:
+        print("CORRECT!")
+        return True
+    else:
+        print("INCORRECT.")
+        return False
+
+def evaluateQuestionAnswer(answer, type) -> str:
+    if type == "math":
+        return eval(answer)
+    elif type == "stringEval":
+        return evalString(answer)
+    else:
+        return "UNKNOWN TYPE"
+
+def setUpNewQuestion(index):
+    newVariables()
+    
+    #we have a new question
+    question = data.QuestionFormat[index]
+    question = replaceVariables(question)
+    backEndInfo["question"] = question
+
+    #we have a new answer
+    type = data.QuestionType[index]
+    answer = data.Answer[index]
+    answer = replaceVariables(answer)
+    answer = evaluateQuestionAnswer(answer, type)
+    backEndInfo["answer"] = str(answer)
+
+    forHuman = data.QuestionForHuman[index]
+    forHuman = replaceForHuman(forHuman, question)
+
+    backEndInfo["question_id"] = data.QuestionID[index]
+    backEndInfo["question_for_human"] = forHuman
 
 # send the frontend the number of questions
 @app.route('/num')
@@ -49,40 +116,52 @@ def num():
 # use index 1 of D1 for now
 @app.route('/questionOne')
 def questionOne():
-    ques = data.QuestionFormat[1]
-    ques_num = data.QuestionID[1]
-    user_ques = random_num(ques)
-    info["question"] = user_ques
-    info["number"] = ques_num
+    if backEndInfo["question_for_human"] == "":
+        setUpNewQuestion(1)
+    
+    info["question"] = backEndInfo["question_for_human"]
+    info["number"] = backEndInfo["question_id"]
     return info
 
 
 @app.route('/answer', methods=['GET', 'POST'])
 def answer():
     frontInfo = json.loads(request.data)
-    newInfo = evaluate(frontInfo['answer'], frontInfo['question'])
+    newInfo = evaluate(frontInfo['answer'])
 
     return {'answer': frontInfo["answer"], 'question': str(newInfo['question']), 'number': str(newInfo['num'])}
 
 
 @app.route('/question', methods=['GET', 'POST'])
 def question():
-    return {'result': info['question']}
+    return {'result': backEndInfo["question_for_human"]}
 
+
+def check_input(ans):
+    try:
+        ans = eval(ans)
+    except (SyntaxError, ValueError, NameError):
+        print("could not eval")
+    return ans
 
 adapt = adaptAlgo()
 
 
-def evaluate(user_answer, user_ques):
-    user_correct = str(eval(str(user_ques))) == user_answer
+def evaluate(user_answer):
+    
+    correct_answer = backEndInfo["answer"]
+    user_answer = check_input(user_answer)
 
-    # print("----EVAL----")
-    # print("USER Q: " + user_ques + " || USER ANS: " + user_answer + " || EXP ANS: " + str(eval(str(user_ques))))
-    # print(user_correct)
+    print(correct_answer)
+    print(user_answer)
+
+    user_correct = evaluateAnswer(correct_answer, str(user_answer))
 
     index = adapt.getNextQuestion(user_correct)
-    newQuestion = random_num(data.QuestionFormat[index])
-    newInfo = {'question': newQuestion, 'num': data.QuestionID[index]}
+    
+    setUpNewQuestion(index)
+
+    newInfo = {'question': backEndInfo["question_for_human"], 'num': data.QuestionID[index]}
     return newInfo
 
 

@@ -1,4 +1,4 @@
-import react from 'react';
+//import react from 'react';
 import {Route, Switch, BrowserRouter as Router} from "react-router-dom";
 import Select from "./Select/Select";
 import NumberSense from "./NumberSense/NumberSense";
