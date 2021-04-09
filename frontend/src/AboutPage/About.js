@@ -6,12 +6,12 @@ function AboutPage() {
     return(
         <div className='AboutPage'>
 
-                <Link to="/">
-                    <button className='AboutBackButton'>Back</button>
-                </Link>
+            <Link to="/">
+                <button id='backButton'>Back</button>
+            </Link>
 
             <h1 className='AboutHeader'>About Our Assessment</h1>
-            <p className='AboutText'>
+            <p className='AboutInfo' id="AboutText">
                 Our Assessment was made by Adam, Kelsey, Sawyer.
             </p>
         </div>
