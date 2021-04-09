@@ -1,13 +1,11 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
 from flask import request
 import pandas as pd
 import json
 from random import randint
 from TestAdaptationAlgorithm import adaptAlgo
 
-app = Flask(__name__, static_folder='../build', static_url_path='/')
-CORS(app)
+app = Flask(__name__)
 
 data = pd.read_csv("NumberSenseQuestions.csv")
 
