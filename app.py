@@ -14,8 +14,9 @@ info = {
     "question": " "
 }
 
-app.route('/')
-def index:
+
+@app.route('/')
+def index():
     return render_template('index.html')
 
 
