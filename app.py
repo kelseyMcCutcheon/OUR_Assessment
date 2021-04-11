@@ -5,9 +5,7 @@ import json
 from random import randint
 from TestAdaptationAlgorithm import adaptAlgo
 
-
-app = Flask(__name__, template_folder="client/build", static_folder="client/build/static")
-
+app = Flask(__name__)
 
 data = pd.read_csv("NumberSenseQuestions.csv")
 
@@ -19,7 +17,8 @@ info = {
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    url = url_for('static', filename='numberSense.js')
+    return render_template('index.html', numberSense=url)
 
 
 # randomly generate numbers for variables
