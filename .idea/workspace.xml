@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3ed2c585-1625-4f6f-95c0-02e0ebb09e84" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/static/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/App.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Home/Homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/Home/Homepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Home/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/Home/Homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/NumberSense/NumberSense.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/NumberSense/NumberSense.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/NumberSense/NumberSense.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/NumberSense/NumberSense.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/OurAssessment.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/OurAssessment.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Select/Select.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/Select/Select.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Select/Select.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/Select/Select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/reportWebVitals.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/setupTests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/static/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qACxzLO8m7fIahkmZxKqGrptMo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OUR_Assessment" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\champtech18\AppData\Local\Microsoft\WindowsApps\python3.9.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3ed2c585-1625-4f6f-95c0-02e0ebb09e84" name="Default Changelist" comment="" />
+      <created>1616513264466</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616513264466</updated>
+      <workItem from="1616513272362" duration="46000" />
+      <workItem from="1616513321640" duration="792000" />
+      <workItem from="1616514518769" duration="429000" />
+      <workItem from="1616521711173" duration="300000" />
+      <workItem from="1616522035324" duration="14028000" />
+      <workItem from="1616642772917" duration="60642000" />
+      <workItem from="1617844976006" duration="23826000" />
+      <workItem from="1618167477270" duration="1399000" />
+    </task>
+    <task id="LOCAL-00001" summary="frontend spits out a specificly indexed question from backend">
+      <created>1616626888973</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616626888973</updated>
+    </task>
+    <task id="LOCAL-00002" summary="something working for backend, its not nice looking but...">
+      <created>1616652691690</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616652691690</updated>
+    </task>
+    <task id="LOCAL-00003" summary="frontend talking to backend giving questions and receiving answers, does not evaluate those answers">
+      <created>1616657295485</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616657295485</updated>
+    </task>
+    <task id="LOCAL-00004" summary="get questions from iterated csv, still only calls 5 at frontend">
+      <created>1617204552428</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1617204552428</updated>
+    </task>
+    <task id="LOCAL-00005" summary="get all questions in an array from backend">
+      <created>1617249121582</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617249121582</updated>
+    </task>
+    <task id="LOCAL-00006" summary="cleaned up app.py">
+      <created>1617313355220</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617313355220</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added answers form to js">
+      <created>1617314762904</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617314762904</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fixed version issues with react-scripts">
+      <created>1617315091470</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617315091470</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added some nextQuestion logic">
+      <created>1617374363288</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617374363288</updated>
+    </task>
+    <task id="LOCAL-00010" summary="implemented random number generator on iterate_questions">
+      <created>1617376164999</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1617376164999</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added dict which saves question info to be accessed throughout python functions">
+      <created>1617634233511</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1617634233512</updated>
+    </task>
+    <task id="LOCAL-00012" summary="dict saves several pieces of info about the question to be used for test_adapt_alg">
+      <created>1617669884388</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617669884388</updated>
+    </task>
+    <task id="LOCAL-00013" summary="adaptAlgo is integrated, but needs editing to work with the project">
+      <created>1617731180522</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617731180523</updated>
+    </task>
+    <task id="LOCAL-00014" summary="removed superfluous functions">
+      <created>1617748518954</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1617748518954</updated>
+    </task>
+    <task id="LOCAL-00015" summary="changed form data feed to backend">
+      <created>1617752770068</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1617752770069</updated>
+    </task>
+    <task id="LOCAL-00016" summary="question changes on submit">
+      <created>1617819370569</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1617819370570</updated>
+    </task>
+    <task id="LOCAL-00017" summary="attempting to get adaptAlgo.getNextQuestion to work">
+      <created>1617846221308</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1617846221308</updated>
+    </task>
+    <task id="LOCAL-00018" summary="question is changing but test adapt alg does not seem to be changing">
+      <created>1617902451792</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1617902451792</updated>
+    </task>
+    <task id="LOCAL-00019" summary="working, removed unnecessary code">
+      <created>1617907662667</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1617907662667</updated>
+    </task>
+    <task id="LOCAL-00020" summary="new commit to get new deploy">
+      <created>1617996411457</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1617996411457</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/react-flask-app" />
+    </ignored-roots>
+    <MESSAGE value="frontend spits out a specificly indexed question from backend" />
+    <MESSAGE value="something working for backend, its not nice looking but..." />
+    <MESSAGE value="frontend talking to backend giving questions and receiving answers, does not evaluate those answers" />
+    <MESSAGE value="get questions from iterated csv, still only calls 5 at frontend" />
+    <MESSAGE value="get all questions in an array from backend" />
+    <MESSAGE value="cleaned up app.py" />
+    <MESSAGE value="added answers form to js" />
+    <MESSAGE value="fixed version issues with react-scripts" />
+    <MESSAGE value="added some nextQuestion logic" />
+    <MESSAGE value="implemented random number generator on iterate_questions" />
+    <MESSAGE value="added dict which saves question info to be accessed throughout python functions" />
+    <MESSAGE value="dict saves several pieces of info about the question to be used for test_adapt_alg" />
+    <MESSAGE value="adaptAlgo is integrated, but needs editing to work with the project" />
+    <MESSAGE value="removed superfluous functions" />
+    <MESSAGE value="changed form data feed to backend" />
+    <MESSAGE value="question changes on submit" />
+    <MESSAGE value="attempting to get adaptAlgo.getNextQuestion to work" />
+    <MESSAGE value="question is changing but test adapt alg does not seem to be changing" />
+    <MESSAGE value="working, removed unnecessary code" />
+    <MESSAGE value="new commit to get new deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="new commit to get new deploy" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/NumberSense/NumberSense.js</url>
+          <line>31</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>88</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/OUR_Assessment$app.coverage" NAME="app Coverage Results" MODIFIED="1618168268383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
