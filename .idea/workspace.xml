@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ed2c585-1625-4f6f-95c0-02e0ebb09e84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/static/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/App.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Home/Homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/Home/Homepage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Home/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/Home/Homepage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/NumberSense/NumberSense.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/NumberSense/NumberSense.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/NumberSense/NumberSense.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/NumberSense/NumberSense.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/OurAssessment.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/OurAssessment.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Select/Select.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/Select/Select.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Select/Select.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/Select/Select.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/reportWebVitals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/src/setupTests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/static/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +87,7 @@
       <workItem from="1616522035324" duration="14028000" />
       <workItem from="1616642772917" duration="60642000" />
       <workItem from="1617844976006" duration="23826000" />
-      <workItem from="1618167477270" duration="1399000" />
+      <workItem from="1618167477270" duration="1783000" />
     </task>
     <task id="LOCAL-00001" summary="frontend spits out a specificly indexed question from backend">
       <created>1616626888973</created>
@@ -297,7 +272,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>88</line>
+          <line>87</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
