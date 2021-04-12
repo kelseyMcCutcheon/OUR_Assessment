@@ -6,7 +6,7 @@ from random import randint
 from TestAdaptationAlgorithm import adaptAlgo
 
 app = Flask(__name__
-            , static_folder='frotend/build', static_url_path='')
+            , static_folder='frontend/build', static_url_path='')
 cors = CORS(app)
 
 data = pd.read_csv("NumberSenseQuestions.csv")
