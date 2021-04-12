@@ -16,7 +16,7 @@ info = {
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('numberSense.js')
 
 
 # randomly generate numbers for variables
