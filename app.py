@@ -5,7 +5,7 @@ import json
 from random import randint
 from TestAdaptationAlgorithm import adaptAlgo
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="build/static", template_folder="build")
 
 data = pd.read_csv("NumberSenseQuestions.csv")
 
@@ -15,6 +15,7 @@ info = {
 }
 
 
+#open react frontend
 @app.route('/')
 def index():
     return render_template('index.html')
