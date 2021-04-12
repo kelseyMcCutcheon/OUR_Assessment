@@ -16,7 +16,7 @@ info = {
 
 @app.route('/')
 def index():
-    return render_template('frontend/templates/index.html')
+    return render_template('index.html')
 
 
 # randomly generate numbers for variables
