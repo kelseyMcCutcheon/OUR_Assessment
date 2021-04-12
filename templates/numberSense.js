@@ -4,4 +4,4 @@ function numberSense(){
     )
 }
 
-export default numberSense
+export default numberSense;
