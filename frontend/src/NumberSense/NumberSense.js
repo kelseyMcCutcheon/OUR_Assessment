@@ -1,7 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import './NumberSense.css';
-import $ from 'jquery';
 
 function NumberSense(){
 
