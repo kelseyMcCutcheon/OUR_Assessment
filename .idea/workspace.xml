@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ed2c585-1625-4f6f-95c0-02e0ebb09e84" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +88,7 @@
       <workItem from="1616522035324" duration="14028000" />
       <workItem from="1616642772917" duration="60642000" />
       <workItem from="1617844976006" duration="23826000" />
-      <workItem from="1618167477270" duration="7494000" />
+      <workItem from="1618167477270" duration="7689000" />
     </task>
     <task id="LOCAL-00001" summary="frontend spits out a specificly indexed question from backend">
       <created>1616626888973</created>
