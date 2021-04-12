@@ -4,7 +4,9 @@ import json
 from random import randint
 from TestAdaptationAlgorithm import adaptAlgo
 
-app = Flask(__name__)
+app = Flask(__name__,
+            static_url_path='',
+            static_folder='frontend/build')
 
 data = pd.read_csv("NumberSenseQuestions.csv")
 
@@ -16,8 +18,8 @@ info = {
 
 # Serve React App
 @app.route('/')
-def serve():
-    return render_template('index.html')
+def root():
+    return app.send_static_file('index.html')
 
 
 # randomly generate numbers for variables
