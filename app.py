@@ -1,13 +1,13 @@
-from flask import Flask, request, jsonify, render_template, send_from_directory
-from flask import request
+from flask import Flask, request, jsonify, render_template, send_from_directory, make_response
+from flask_cors import CORS
 import pandas as pd
-import os
 import json
 from random import randint
 from TestAdaptationAlgorithm import adaptAlgo
 
-
-app = Flask(__name__, static_folder='frontend/build')
+app = Flask(__name__
+            , static_folder='frotend/build', static_url_path='')
+cors = CORS(app)
 
 data = pd.read_csv("NumberSenseQuestions.csv")
 
@@ -18,13 +18,9 @@ info = {
 
 
 # Serve React App
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def serve(path):
-    if path != "" and os.path.exists(app.static_folder + '/' + path):
-        return send_from_directory(app.static_folder, path)
-    else:
-        return send_from_directory(app.static_folder, 'index.html')
+@app.route('/')
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
 
 
 # randomly generate numbers for variables
