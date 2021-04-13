@@ -161,17 +161,26 @@ def evaluate(user_answer):
     correct_answer = backEndInfo["answer"]
     user_answer = check_input(user_answer)
 
+    #correct_answer = round(int(correct_answer))
     print("correct:" + str(correct_answer))
     print("user:" + str(user_answer))
 
-    user_correct = evaluateAnswer(correct_answer, str(user_answer))
+    user_correct = evaluateAnswer(str(correct_answer), str(user_answer))
 
     index = adapt.getNextQuestion(user_correct)
+    # if index is within available data, set up new question
+    if index <= 35:
+        setUpNewQuestion(index)
 
-    setUpNewQuestion(index)
+        newInfo = {'question': backEndInfo["question_for_human"], 'num': data.QuestionID[index]}
+        return newInfo
+    # if index is out of data range, end test
+    else:
+        end_test()
 
-    newInfo = {'question': backEndInfo["question_for_human"], 'num': data.QuestionID[index]}
-    return newInfo
+
+def end_test():
+    print("END OF TEST")
 
 
 if __name__ == '__main__':
