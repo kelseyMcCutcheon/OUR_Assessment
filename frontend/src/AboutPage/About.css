@@ -1,0 +1,18 @@
+.AboutPage{
+    font-family: 'Times New Roman';
+    color: white;
+}
+
+.AboutHeader{
+    margin-top: 5%;
+    margin-bottom: 2%;
+    text-align: center;
+    font-size: 4vh;
+}
+
+#AboutText{
+    font-size: 110%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align:left;
+}

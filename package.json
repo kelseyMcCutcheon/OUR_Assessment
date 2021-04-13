@@ -2,6 +2,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "heroku": "^7.52.0",
-    "json": "^10.0.0"
+    "json": "^10.0.0",
+    "pandas": "^0.0.3"
   }
 }

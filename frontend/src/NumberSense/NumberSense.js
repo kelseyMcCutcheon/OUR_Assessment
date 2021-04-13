@@ -1,6 +1,9 @@
+  
 import React from 'react';
 import {useState, useEffect} from 'react';
 import './NumberSense.css';
+import { Link } from 'react-router-dom';
+//import $ from 'jquery';
 
 function NumberSense(){
 
@@ -20,11 +23,11 @@ function NumberSense(){
         });
     }, []);
 
-    const [answer, setAnswer] = useState(" ");
+    const [answer, setAnswer] = useState("");
     
     const submit = (e) => {
         const info = {'number': num, 'answer': answer, 'question': question};
-
+        document.getElementById("Form").reset()
         e.preventDefault()
         fetch('/answer', {
             method: 'POST',
@@ -33,7 +36,7 @@ function NumberSense(){
         })
         .then(res => res.json())
         .then(data => {
-            setAnswer(data.answer)
+            setAnswer("")
             setQuestion(data.question)
             setNum(data.number)
         })
@@ -41,17 +44,19 @@ function NumberSense(){
 
     return(
     <div className="Test">
+        <Link to="/">
+                <button id='backButton'>Quit to Homepage</button>
+        </Link>
 
-    <form onSubmit={submit}>
-          {num}  {question}: <input
-                            type="text"
-                            name="answer"
-                            value={answer}
-                            onChange = {e => setAnswer(e.target.value)}
-                            />
-          <input type="submit" value="Submit" name="count"></input>
-      </form>
-        {answer}<br></br>
+        <div id="questionID">Question: {num}</div>
+        <div id="question">{question}</div>
+        <br/>
+        <form onSubmit={submit} id="Form" autoComplete="off">
+            <input id="form_input" type="text" name="answer" value={answer} onChange = {e => setAnswer(e.target.value)}/>
+            <br/>
+            <input id="form_button" type="submit" value="Submit" name="count"></input>
+        </form>
+
     </div>
     )
 }
