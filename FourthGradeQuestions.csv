@@ -74,27 +74,27 @@ QuestionID,QuestionType,QuestionFormat,Answer,QuestionForHuman
 5.7.1,math,X/3,X%3,What is the remainder of X/3?
 5.7.2,math,X0/3,X0%3,What is the remainder of X0/3?
 5.7.3,math,XY/3,XY%3,What is the remainder of XY/3?
-6.1.1,,,,
-6.1.2,,,,
-6.1.3,,,,
-6.2.1,,,,
-6.2.2,,,,
-6.2.3,,,,
-6.3.1,,,,
-6.3.2,,,,
-6.3.3,,,,
-6.4.1,,,,
-6.4.2,,,,
-6.4.3,,,,
-6.5.1,,,,
-6.5.2,,,,
-6.5.3,,,,
-6.6.1,,,,
-6.6.2,,,,
-6.6.3,,,,
-6.7.1,,,,
-6.7.2,,,,
-6.7.3,,,,
+6.1.1,,,X0/5,Given 5 what is the other factor of X0?
+6.1.2,,,X0/Y,Given Y what is the other factor of X0?
+6.1.3,,,XY/Z,Given Z what is the other factor of XY?
+6.2.1,,,,What is a factor of X?
+6.2.2,,,,What is a factor of XY?
+6.2.3,,,,What is a factor of XYZ?
+6.3.1,,,,What is a multiple of X?
+6.3.2,,,,What is a multiple of XY?
+6.3.3,,,,What is a multiple of XYZ?
+6.4.1,,,7,What is a prime number between 6 and 10?
+6.4.2,,,31,What is a prime number between 30 and 35?
+6.4.3,,,,What is a prime number greater than 100?
+6.5.1,,,,What is a composite number less than 10?
+6.5.2,,,,What is a composite number between 60 and 70?
+6.5.3,,,,Is XYZ a composite number?
+6.6.1,math,1 X (X*2) (X*3) (X*4),(X*5),Which number should come next in this pattern?
+6.6.2,math,,,Which number should come next in this pattern?
+6.6.3,math,,,Which number should come next in this pattern?
+6.7.1,Image,Image,Image,Which shape should come next in this pattern?
+6.7.2,Image,Image,Image,Which shape should come next in this pattern?
+6.7.3,Image,Image,Image,Which shape should come next in this pattern?
 7.1.1,,,,
 7.1.2,,,,
 7.1.3,,,,
