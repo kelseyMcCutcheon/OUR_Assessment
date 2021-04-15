@@ -83,8 +83,8 @@ QuestionID,QuestionType,QuestionFormat,Answer,QuestionForHuman
 6.3.1,,,,What is a multiple of X?
 6.3.2,,,,What is a multiple of XY?
 6.3.3,,,,What is a multiple of XYZ?
-6.4.1,,,7,What is a prime number between 6 and 10?
-6.4.2,,,31,What is a prime number between 30 and 35?
+6.4.1,,,,What is a prime number between 1 and 10?
+6.4.2,,,,What is a prime number between 30 and 40?
 6.4.3,,,,What is a prime number greater than 100?
 6.5.1,,,,What is a composite number less than 10?
 6.5.2,,,,What is a composite number between 60 and 70?
