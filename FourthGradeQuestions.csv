@@ -110,9 +110,9 @@ QuestionID,QuestionType,QuestionFormat,Answer,QuestionForHuman
 8.3.1,,X/Y - 1/Y,(X-1)/Y,What is X/Y - 1/Y?
 8.3.2,,X/Y - Z/Y,(X-Z)/Y,What is X/Y - Z/Y?
 8.3.3,,X/Y - ZW/Y,(X-ZW)/Y,What is X/Y - ZW/Y?
-8.4.1,,,,
-8.4.2,,,,
-8.4.3,,,,
+8.4.1,,,,Write (XY)Z as a mixed number?
+8.4.2,,,,Write (X*Y)/Z as a mixed number?
+8.4.3,,,,Write (X*Y*Z)/W as a mixed number?
 8.5.1,,,,
 8.5.2,,,,
 8.5.3,,,,
