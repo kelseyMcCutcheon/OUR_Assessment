@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "@devexpress/dx-react-chart": "^2.7.5",
+    "@devexpress/dx-react-core": "^2.7.5",
+    "@progress/kendo-licensing": "^1.1.4",
+    "@progress/kendo-react-dateinputs": "^4.5.0",
+    "@progress/kendo-react-intl": "^4.5.0",
+    "@progress/kendo-theme-default": "^4.37.0",
+    "apexcharts": "^3.26.1",
     "axios": "^0.21.1",
     "heroku": "^7.52.0",
     "json": "^10.0.0",

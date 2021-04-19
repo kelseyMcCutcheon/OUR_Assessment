@@ -24,7 +24,8 @@ function NumberSense(){
     }, []);
 
     const [answer, setAnswer] = useState("");
-    
+    const [isEnd, setIsEnd] = useState("");
+
     const submit = (e) => {
         const info = {'number': num, 'answer': answer, 'question': question};
         document.getElementById("Form").reset()
@@ -39,6 +40,7 @@ function NumberSense(){
             setAnswer("")
             setQuestion(data.question)
             setNum(data.number)
+            setIsEnd(data.end)
         })
     }
 
@@ -56,7 +58,7 @@ function NumberSense(){
             <br/>
             <input id="form_button" type="submit" value="Submit" name="count"></input>
         </form>
-
+        <h1><Link to='/end'>{isEnd}</Link></h1>
     </div>
     )
 }

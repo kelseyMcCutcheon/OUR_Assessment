@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, send_from_directory, make_response
+from flask import Flask, request, jsonify, render_template, redirect, url_for
 import pandas as pd
 import json
 from random import randint
@@ -7,6 +7,8 @@ from TestAdaptationAlgorithm import adaptAlgo
 app = Flask(__name__)
 
 data = pd.read_csv("NumberSenseQuestions.csv")
+
+test = []
 
 info = {
     "number": "num 1",
@@ -43,6 +45,7 @@ def replaceForHuman(forHuman, question) -> str:
         print("MARKER NOT FOUND: " + forHuman)
         return question
 
+
 # randomly generate numbers for variables
 def newVariables(rangeMin=1, rangeMax=9) -> dict:
     for x in variables:
@@ -77,9 +80,12 @@ def replaceVariables(question) -> str:
 def evaluateAnswer(correctAnswer, userAnswer) -> bool:
     if userAnswer == correctAnswer:
         print("CORRECT!")
+        unit = backEndInfo['question'].split('.')
+        test.append({'number': backEndInfo['question_id'], 'question': backEndInfo['question'], 'userResult': 'Correct', 'unit': unit})
         return True
     else:
         print("INCORRECT.")
+        test.append({'number': backEndInfo['question_id'], 'userResult': 'Incorrect'})
         return False
 
 
@@ -137,8 +143,10 @@ def questionOne():
 def answer():
     frontInfo = json.loads(request.data)
     newInfo = evaluate(frontInfo['answer'])
-
-    return {'answer': frontInfo["answer"], 'question': str(newInfo['question']), 'number': str(newInfo['num'])}
+    if newInfo == 'END':
+        return {'end': 'END'}
+    else:
+        return {'answer': frontInfo["answer"], 'question': str(newInfo['question']), 'number': str(newInfo['num'])}
 
 
 @app.route('/question', methods=['GET', 'POST'])
@@ -162,25 +170,25 @@ def evaluate(user_answer):
     user_answer = check_input(user_answer)
 
     #correct_answer = round(int(correct_answer))
-    print("correct:" + str(correct_answer))
-    print("user:" + str(user_answer))
 
     user_correct = evaluateAnswer(str(correct_answer), str(user_answer))
 
     index = adapt.getNextQuestion(user_correct)
     # if index is within available data, set up new question
-    if index <= 35:
+    if index <= len(data):
         setUpNewQuestion(index)
 
         newInfo = {'question': backEndInfo["question_for_human"], 'num': data.QuestionID[index]}
         return newInfo
     # if index is out of data range, end test
     else:
-        end_test()
+        return 'END'
 
 
-def end_test():
-    print("END OF TEST")
+# send test info for graphing
+@app.route('/test_info', methods=['GET', 'POST'])
+def test_info():
+    return jsonify(result=test)
 
 
 if __name__ == '__main__':

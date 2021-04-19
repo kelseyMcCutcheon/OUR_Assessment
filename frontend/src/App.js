@@ -2,6 +2,7 @@
 import {Route, Switch, BrowserRouter as Router} from "react-router-dom";
 import Select from "./Select/Select";
 import NumberSense from "./NumberSense/NumberSense";
+import End from "./End/End";
 
 import './OurAssessment.css';
 
@@ -18,6 +19,7 @@ function App() {
               <Route path='/testSelect' component={Select} />
               <Route path='/aboutpage' component={AboutPage} />
               <Route path='/numberSense' component={NumberSense} />
+              <Route path='/end' component={End} />
           </Switch>
       </Router>
     </div>
