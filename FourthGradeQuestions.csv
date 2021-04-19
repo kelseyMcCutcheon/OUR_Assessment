@@ -50,78 +50,69 @@ QuestionID,QuestionType,QuestionFormat,Answer,QuestionForHuman
 4.2.1,math,X*10,X*10,What is X*10 estimated to the nearest tenth?
 4.2.2,math,X5*Y0,X5*Y0,What is X5*Y0 estimated to the nearest tenth?
 4.2.3,math,XW*YZ,XW*YZ,What is XW*YZ estimated to the nearest tenth?
-4.3.1,math,,,
-4.3.2,math,,,
-4.3.3,math,,,
-5.1.1,,,,
-5.1.2,,,,
-5.1.3,,,,
-5.2.1,,,,
-5.2.2,,,,
-5.2.3,,,,
-5.3.1,,,,
-5.3.2,,,,
-5.3.3,,,,
-5.4.1,,,,
-5.4.2,,,,
-5.4.3,,,,
-5.5.1,,,,
-5.5.2,,,,
-5.5.3,,,,
-5.6.1,,,,
-5.6.2,,,,
-5.6.3,,,,
-5.7.1,,,,
-5.7.2,,,,
-5.7.3,,,,
-5.8.1,,,,
-5.8.2,,,,
-5.8.3,,,,
-6.1.1,,,,
-6.1.2,,,,
-6.1.3,,,,
-6.2.1,,,,
-6.2.2,,,,
-6.2.3,,,,
-6.3.1,,,,
-6.3.2,,,,
-6.3.3,,,,
-6.4.1,,,,
-6.4.2,,,,
-6.4.3,,,,
-6.5.1,,,,
-6.5.2,,,,
-6.5.3,,,,
-6.6.1,,,,
-6.6.2,,,,
-6.6.3,,,,
-6.7.1,,,,
-6.7.2,,,,
-6.7.3,,,,
-7.1.1,,,,
-7.1.2,,,,
-7.1.3,,,,
-7.2.1,,,,
-7.2.2,,,,
-7.2.3,,,,
-7.3.1,,,,
-7.3.2,,,,
-7.3.3,,,,
-7.4.1,,,,
-7.4.2,,,,
-7.4.3,,,,
-8.1.1,,,,
-8.1.2,,,,
-8.1.3,,,,
-8.2.1,,,,
-8.2.2,,,,
-8.2.3,,,,
-8.3.1,,,,
-8.3.2,,,,
-8.3.3,,,,
-8.4.1,,,,
-8.4.2,,,,
-8.4.3,,,,
+4.3.1,math,X0*10,X0*10,What is X0*10?
+4.3.2,math,X0*X0,X0*X0,What is X0*X0?
+4.3.3,math,X0*Y0,X0*Y0,What is X0*Y0?
+5.1.1,math,XY/10,XY%10,What is the remainder of XY/10?
+5.1.2,math,X0/Z,X0%Z,What is the remainder of X0/Z?
+5.1.3,math,XY/Z,XY%Z,What is the remainder of XY/Z?
+5.2.1,math,X0/10,X,What is X0/10?
+5.2.2,math,X5/Y0,X5/10,What is X5/10?
+5.2.3,math,XY/Z0,XY/Z0,What is XY/Z?
+5.3.1,math,XY0/100,XY0/100,What is XY0/100?
+5.3.2,math,XY5/Z00,XY5/Z00,What is XY5/Z00?
+5.3.3,math,XYZ/W00,XYZ/W00,What is XYZ/W00?
+5.4.1,math,XYZ0/1000,XYZ0/1000,What is XY0/1000?
+5.4.2,math,XYZ5/Z000,XYZ5/Z000,What is XYZ5/Z000?
+5.4.3,math,XYZW/U000,XYZW/U000,What is XYZW/U000?
+5.5.1,math,X0/2,X0%2,What is the remainder of X0/2?
+5.5.2,math,X/2,X%2,What is the remainder of X0/2?
+5.5.3,math,XY%2,XY%2,What is the remainder of XY%2?
+5.6.1,math,X/3,X%3,What is the remainder of X/3?
+5.6.2,math,X0/3,X0%3,What is the remainder of X0/3?
+5.6.3,math,XY/3,XY%3,What is the remainder of XY/3?
+6.1.1,,,X0/5,Given 5 what is the other factor of X0?
+6.1.2,,,X0/Y,Given Y what is the other factor of X0?
+6.1.3,,,XY/Z,Given Z what is the other factor of XY?
+6.2.1,,,,What is a factor of X?
+6.2.2,,,,What is a factor of XY?
+6.2.3,,,,What is a factor of XYZ?
+6.3.1,,,,What is a multiple of X?
+6.3.2,,,,What is a multiple of XY?
+6.3.3,,,,What is a multiple of XYZ?
+6.4.1,,,,What is a prime number between 1 and 10?
+6.4.2,,,,What is a prime number between 30 and 40?
+6.4.3,,,,What is a prime number greater than 100?
+6.5.1,,,,What is a composite number less than 10?
+6.5.2,,,,What is a composite number between 60 and 70?
+6.5.3,,,,Is XYZ a composite number?
+6.6.1,math,1 X (X*2) (X*3) (X*4),(X*5),Which number should come next in this pattern?
+6.6.2,math,(2*X) (4*X) (6*X) (8*X),(10*X),Which number should come next in this pattern?
+6.6.3,math,(Y+X) (Y+Y+X) (Y+Y+Y+X),(Y+Y+Y+Y+X),Which number should come next in this pattern?
+6.7.1,Image,Image,Image,Which shape should come next in this pattern?
+6.7.2,Image,Image,Image,Which shape should come next in this pattern?
+6.7.3,Image,Image,Image,Which shape should come next in this pattern?
+7.1.1,,,,What is the least common denominator between 1/X and Y/2?
+7.1.2,,,,What is the least common denominator between 1/X and Y/5?
+7.1.3,,,,What is the least common denominator between X/Y and Y/Z?
+7.2.1,Image,Image,,Is fraction A > < or = to fraction B?
+7.2.2,Image,Image,,Is fraction A > < or = to fraction B?
+7.2.3,Image,Image,,Is fraction A > < or = to fraction B?
+7.3.1,,1/X 1/Y,,Is fraction A > < or = to fraction B?
+7.3.2,,X/Y 2/X,,Is fraction A > < or = to fraction B?
+7.3.3,,X/Y Z/W,,Is fraction A > < or = to fraction B?
+8.1.1,,1/X + 2/X + Y/X,(3+Y)/X,Complete this equation.
+8.1.2,,5/X + 1/Y,((5*Y)+(X))/(X*Y),Complete this equation.
+8.1.3,,X/Y+W/Z,((X*Z)+(W*Y))/(Y*Z),Complete this equation.
+8.2.1,,X/Y + 1/Y,(X+1)/Y,What is X/Y + 1/Y?
+8.2.2,,X/Y + Z/Y,(X+Z)/Y,What is X/Y + Z/Y?
+8.2.3,,X/Y + ZW/Y,(X+ZW)/Y,What is X/Y + ZW/Y?
+8.3.1,,X/Y - 1/Y,(X-1)/Y,What is X/Y - 1/Y?
+8.3.2,,X/Y - Z/Y,(X-Z)/Y,What is X/Y - Z/Y?
+8.3.3,,X/Y - ZW/Y,(X-ZW)/Y,What is X/Y - ZW/Y?
+8.4.1,,,,Write (XY)Z as a mixed number?
+8.4.2,,,,Write (X*Y)/Z as a mixed number?
+8.4.3,,,,Write (X*Y*Z)/W as a mixed number?
 8.5.1,,,,
 8.5.2,,,,
 8.5.3,,,,
