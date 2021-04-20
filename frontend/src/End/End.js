@@ -4,23 +4,14 @@ import { Link } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import {
   Chart,
-  BarSeries,
-  Title,
   ArgumentAxis,
   ValueAxis,
+  BarSeries,
+  Title,
+  Legend,
 } from '@devexpress/dx-react-chart-material-ui';
-import {Animation } from '@devexpress/dx-react-chart';
-
-
-const data = [
-  { year: '1950', population: 2.525 },
-  { year: '1960', population: 3.018 },
-  { year: '1970', population: 3.682 },
-  { year: '1980', population: 4.440 },
-  { year: '1990', population: 5.310 },
-  { year: '2000', population: 6.127 },
-  { year: '2010', population: 6.930 },
-];
+import { withStyles } from '@material-ui/core/styles';
+import {Stack, Animation } from '@devexpress/dx-react-chart';
 
 
 function End(){
@@ -39,18 +30,28 @@ function End(){
               <Chart
                   data={chartData}
               >
-                <ArgumentAxis/>
+                <ArgumentAxis />
                 <ValueAxis max={7}/>
 
                 <BarSeries
-                    valueField="numberQuestion"
+                    name = "Correct Answers"
+                    valueField="numberCorrect"
                     argumentField="unit"
                 />
-                <Title text="Test Data"/>
+                <BarSeries
+                    name = "Incorrect Answers"
+                    valueField="numberIncorrect"
+                    argumentField="unit"
+                />
                 <Animation/>
+                <Title text="Test Data" />
+                <Stack
+                  stacks={[
+                    { series: ['Correct Answers', 'Incorrect Answers'] },
+                  ]}
+                />
               </Chart>
             </Paper>
-            {testInfo.map(t => <div>{t.unit}</div>)}
           </div>
       );
   }

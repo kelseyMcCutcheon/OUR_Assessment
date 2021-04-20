@@ -190,24 +190,37 @@ def evaluate(user_answer):
 def test_info():
     units = []
     # hardcoded unit values for now
-    u1_questions = 0
-    u2_questions = 0
-    u4_questions = 0
+    u1_questions_correct = 0
+    u1_questions_incorrect = 0
+    u2_questions_correct = 0
+    u2_questions_incorrect = 0
+    u4_questions_correct = 0
+    u4_questions_incorrect = 0
     for t in test:
         unit = t['number'].split('.')[0]
         if unit not in units:
             units.append(unit)
     for t in test:
         if t['number'].split('.')[0] == str(1):
-            u1_questions+=1
+            if t['userResult'] == 'Correct':
+                u1_questions_correct+=1
+            else:
+                u1_questions_incorrect+=1
         elif t['number'].split('.')[0] == str(2):
-            u2_questions+=1
+            if t['userResult'] == 'Correct':
+                u2_questions_correct+=1
+            else:
+                u2_questions_incorrect+=1
         elif t['number'].split('.')[0] == str(4):
-            u4_questions+=1
+            if t['userResult'] == 'Correct':
+                u4_questions_correct+=1
+            else:
+                u4_questions_incorrect+=1
 
-    unit_parsed_data = [{"unit": "Unit 1", "numberQuestion": u1_questions},
-                        {"unit": "Unit 2", "numberQuestion": u2_questions},
-                        {"unit": "Unit 4", "numberQuestion": u4_questions}]
+    unit_parsed_data = [{"unit": "Unit 1", "numberCorrect": u1_questions_correct, "numberIncorrect": u1_questions_incorrect},
+                        {"unit": "Unit 2", "numberCorrect": u2_questions_correct, "numberIncorrect": u2_questions_incorrect},
+                        {"unit": "Unit 4", "numberCorrect": u4_questions_correct, "numberIncorrect": u4_questions_incorrect}]
+
 
     return jsonify(result=unit_parsed_data)
 
