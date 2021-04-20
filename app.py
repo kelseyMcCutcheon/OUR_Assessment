@@ -188,7 +188,28 @@ def evaluate(user_answer):
 # send test info for graphing
 @app.route('/test_info', methods=['GET', 'POST'])
 def test_info():
-    return jsonify(result=test)
+    units = []
+    # hardcoded unit values for now
+    u1_questions = 0
+    u2_questions = 0
+    u4_questions = 0
+    for t in test:
+        unit = t['number'].split('.')[0]
+        if unit not in units:
+            units.append(unit)
+    for t in test:
+        if t['number'].split('.')[0] == str(1):
+            u1_questions+=1
+        elif t['number'].split('.')[0] == str(2):
+            u2_questions+=1
+        elif t['number'].split('.')[0] == str(4):
+            u4_questions+=1
+
+    unit_parsed_data = [{"unit": "Unit 1", "numberQuestion": u1_questions},
+                        {"unit": "Unit 2", "numberQuestion": u2_questions},
+                        {"unit": "Unit 4", "numberQuestion": u4_questions}]
+
+    return jsonify(result=unit_parsed_data)
 
 
 if __name__ == '__main__':

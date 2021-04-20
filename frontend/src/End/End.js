@@ -23,35 +23,36 @@ const data = [
 ];
 
 
-export default class Demo extends React.PureComponent {
+function End(){
 
-  constructor(props) {
-    super(props);
+  const [testInfo, setTestInfo] = useState([]);
+    useEffect(() => {
+        fetch('/test_info').then(res => res.json()).then(data => {
+          setTestInfo(data.result);
+        });
+    }, []);
 
-    this.state = {
-      data,
-    };
+    const chartData=testInfo;
+      return (
+          <div className="App">
+            <Paper>
+              <Chart
+                  data={chartData}
+              >
+                <ArgumentAxis/>
+                <ValueAxis max={7}/>
+
+                <BarSeries
+                    valueField="numberQuestion"
+                    argumentField="unit"
+                />
+                <Title text="Test Data"/>
+                <Animation/>
+              </Chart>
+            </Paper>
+            {testInfo.map(t => <div>{t.unit}</div>)}
+          </div>
+      );
   }
 
-  render() {
-    const { data: chartData } = this.state;
-
-    return (
-      <Paper>
-        <Chart
-          data={chartData}
-        >
-          <ArgumentAxis />
-          <ValueAxis max={7} />
-
-          <BarSeries
-            valueField="population"
-            argumentField="year"
-          />
-          <Title text="World population" />
-          <Animation />
-        </Chart>
-      </Paper>
-    );
-  }
-}
+export default End;
