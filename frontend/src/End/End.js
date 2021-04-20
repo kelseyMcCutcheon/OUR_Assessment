@@ -1,57 +1,57 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import Paper from '@material-ui/core/Paper';
+import {
+  Chart,
+  BarSeries,
+  Title,
+  ArgumentAxis,
+  ValueAxis,
+} from '@devexpress/dx-react-chart-material-ui';
+import {Animation } from '@devexpress/dx-react-chart';
 
 
-function End(){
-    const [test, setTest] = useState([]);
+const data = [
+  { year: '1950', population: 2.525 },
+  { year: '1960', population: 3.018 },
+  { year: '1970', population: 3.682 },
+  { year: '1980', population: 4.440 },
+  { year: '1990', population: 5.310 },
+  { year: '2000', population: 6.127 },
+  { year: '2010', population: 6.930 },
+];
 
 
-    useEffect(() => {
-        fetch('/test_info').then(res => res.json()).then(data => {
-            setTest(data.result)
-        });
-    }, []);
+export default class Demo extends React.PureComponent {
 
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className="App">
-      <html>
-        <head>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-        <script type="text/javascript">
+    this.state = {
+      data,
+    };
+  }
 
-        window.onload = function () {
-            var chart = new CanvasJS.Chart("chartContainer", {
-                title:{
-                    text: "My First Chart in CanvasJS"
-                },
-                data: [
-                {
-                    // Change type to "doughnut", "line", "splineArea", etc.
-                    type: "column",
-                    dataPoints: [
-                        { label: "apple",  y: 10  },
-                        { label: "orange", y: 15  },
-                        { label: "banana", y: 25  },
-                        { label: "mango",  y: 30  },
-                        { label: "grape",  y: 28  }
-                    ]
-                }
-                ]
-            });
-            chart.render();
-        }
-        </script>
-        </head>
-        <body>
-        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-        </body>
-        </html>
-    </div>
-  )
+  render() {
+    const { data: chartData } = this.state;
 
+    return (
+      <Paper>
+        <Chart
+          data={chartData}
+        >
+          <ArgumentAxis />
+          <ValueAxis max={7} />
 
+          <BarSeries
+            valueField="population"
+            argumentField="year"
+          />
+          <Title text="World population" />
+          <Animation />
+        </Chart>
+      </Paper>
+    );
+  }
 }
-
-export default End;
