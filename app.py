@@ -173,11 +173,6 @@ def evaluate(user_answer):
     # do not try to evaluate % sign
     user_answer = str(user_answer)
 
-    # evaluate fraction questions looking for a fraction answer
-    if 'fraction' in question:
-        correct_answer = float(correct_answer)
-        correct_answer = Fraction(correct_answer).limit_denominator()
-
     if '%' in user_answer:
         user_answer = user_answer[:-1]
     user_answer = check_input(user_answer)
@@ -187,6 +182,10 @@ def evaluate(user_answer):
             correct_answer = round(float(correct_answer))
         elif '.' in correct_answer:
             correct_answer = round(float(correct_answer), 2)
+    # evaluate fraction questions looking for a fraction answer
+    elif 'fraction' in question:
+        correct_answer = float(correct_answer)
+        correct_answer = Fraction(correct_answer).limit_denominator()
 
     user_correct = evaluateAnswer(str(correct_answer), str(user_answer))
 
