@@ -8,9 +8,15 @@ function Homepage(){
 
     return(
         <div className="Home">
-            <h1>HOMEPAGE</h1>
+            <header id='Title'>
+                <h1>Welcome!</h1>
+            </header>
             <Link to='/testSelect'>
-                <Button className="btn btn-primary" type="submit">Select</Button>
+                <Button className="btn btn-primary HomepageButton" type="submit">Start (Y)OUR Assessment</Button>
+            </Link>
+            <br/>
+            <Link to='/aboutpage'>
+                <Button className="btn btn-primary HomepageButton" type="submit">About OUR Assessment</Button>
             </Link>
         </div>
     )
