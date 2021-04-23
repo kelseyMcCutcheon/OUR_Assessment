@@ -178,6 +178,13 @@ def evaluate(user_answer):
         user_answer = user_answer[:-1]
     if ('r' or 't') not in question:
         user_answer = check_input(user_answer)
+    elif ('r' or 't') in question:
+        if ('0r' or '0t') in question:
+            if '0r' in question:
+                correct_answer = correct_answer.replace('0r', 'r')
+            if '0t' in question:
+                correct_answer = correct_answer.replace('0t', 't')
+        print(user_answer, correct_answer)
 
     # evaluate fraction questions looking for a fraction answer
     if 'fraction' in human_question:

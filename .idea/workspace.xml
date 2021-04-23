@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3ed2c585-1625-4f6f-95c0-02e0ebb09e84" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NumberSenseQuestions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/NumberSenseQuestions.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +96,7 @@
       <workItem from="1616522035324" duration="14028000" />
       <workItem from="1616642772917" duration="60642000" />
       <workItem from="1617844976006" duration="23826000" />
-      <workItem from="1618167477270" duration="59757000" />
+      <workItem from="1618167477270" duration="60493000" />
     </task>
     <task id="LOCAL-00001" summary="frontend spits out a specificly indexed question from backend">
       <created>1616626888973</created>
@@ -307,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619151988510</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="fixed unit 4 could not eval but still correct error">
+      <created>1619153447261</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1619153447261</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,6 +354,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="fixed unit 4 could not eval but still correct error" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/OUR_Assessment$app.coverage" NAME="app Coverage Results" MODIFIED="1619152381021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OUR_Assessment$app.coverage" NAME="app Coverage Results" MODIFIED="1619153978319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
