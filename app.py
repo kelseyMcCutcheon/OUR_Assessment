@@ -169,8 +169,12 @@ def evaluate(user_answer):
     correct_answer = backEndInfo["answer"]
     user_answer = check_input(user_answer)
 
-    #correct_answer = round(int(correct_answer))
+    user_answer = str(user_answer)
+    if '%' in user_answer:
+        user_answer = user_answer[:-1]
+    correct_answer = round(float(correct_answer))
 
+    print(user_answer)
     user_correct = evaluateAnswer(str(correct_answer), str(user_answer))
 
     index = adapt.getNextQuestion(user_correct)
