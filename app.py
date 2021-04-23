@@ -177,18 +177,26 @@ def evaluate(user_answer):
     if '%' in user_answer:
         user_answer = user_answer[:-1]
     if ('r' or 't') not in question:
-        print(question)
         user_answer = check_input(user_answer)
 
-    if '.' in correct_answer:
+    # evaluate fraction questions looking for a fraction answer
+    if 'fraction' in human_question:
+        correct_answer = float(correct_answer)
+        correct_answer = Fraction(correct_answer).limit_denominator()
+        user_answer = str(Fraction(user_answer).limit_denominator())
+
+    # evaluate decimal questions looking for a decimal answer
+    elif 'decimal' in human_question:
+        correct_answer = float(correct_answer)
+        correct_answer = Fraction(correct_answer).limit_denominator()
+        correct_answer = str(float(correct_answer))
+
+    if '.' in str(correct_answer):
         if correct_answer.split('.')[1] == '0':
             correct_answer = round(float(correct_answer))
         elif '.' in correct_answer:
             correct_answer = round(float(correct_answer), 2)
-    # evaluate fraction questions looking for a fraction answer
-    elif 'fraction' in human_question:
-        correct_answer = float(correct_answer)
-        correct_answer = Fraction(correct_answer).limit_denominator()
+
 
     user_correct = evaluateAnswer(str(correct_answer), str(user_answer))
 

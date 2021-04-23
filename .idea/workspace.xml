@@ -95,7 +95,7 @@
       <workItem from="1616522035324" duration="14028000" />
       <workItem from="1616642772917" duration="60642000" />
       <workItem from="1617844976006" duration="23826000" />
-      <workItem from="1618167477270" duration="58344000" />
+      <workItem from="1618167477270" duration="59757000" />
     </task>
     <task id="LOCAL-00001" summary="frontend spits out a specificly indexed question from backend">
       <created>1616626888973</created>
@@ -300,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619151427098</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fixed unit 4 could not eval but still correct error">
+      <created>1619151988510</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1619151988510</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,7 +318,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/react-flask-app" />
     </ignored-roots>
-    <MESSAGE value="get all questions in an array from backend" />
     <MESSAGE value="cleaned up app.py" />
     <MESSAGE value="added answers form to js" />
     <MESSAGE value="fixed version issues with react-scripts" />
@@ -336,9 +342,10 @@
     <MESSAGE value="fixed rounding error and % could not eval false error" />
     <MESSAGE value="fraction question taking decimal as answer mostly fixed, .67 is 67/100 not 2/3 technically correct" />
     <MESSAGE value="fixed if statement error" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed if statement error" />
+    <MESSAGE value="fixed unit 4 could not eval but still correct error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed unit 4 could not eval but still correct error" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/OUR_Assessment$app.coverage" NAME="app Coverage Results" MODIFIED="1619150977492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OUR_Assessment$app.coverage" NAME="app Coverage Results" MODIFIED="1619152381021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
