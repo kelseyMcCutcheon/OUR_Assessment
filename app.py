@@ -16,20 +16,20 @@ info = {
 }
 
 backEndInfo = {
-    "question_id" : "",
-    "question_index" : 1,
-    "question" : "",
+    "question_id": "",
+    "question_index": 1,
+    "question": "",
     "question_for_human": "",
-    "answer" : "",
-    "user_answer" : ""
+    "answer": "",
+    "user_answer": ""
 }
 
 variables = {
-        "X": 0,
-        "Y": 0,
-        "Z": 0,
-        "W": 0
-    }
+    "X": 0,
+    "Y": 0,
+    "Z": 0,
+    "W": 0
+}
 
 '''
 @app.route('/')
@@ -81,7 +81,8 @@ def evaluateAnswer(correctAnswer, userAnswer) -> bool:
     if userAnswer == correctAnswer:
         print("CORRECT!")
         unit = backEndInfo['question'].split('.')
-        test.append({'number': backEndInfo['question_id'], 'question': backEndInfo['question'], 'userResult': 'Correct', 'unit': unit})
+        test.append({'number': backEndInfo['question_id'], 'question': backEndInfo['question'], 'userResult': 'Correct',
+                     'unit': unit})
         return True
     else:
         print("INCORRECT.")
@@ -167,14 +168,18 @@ adapt = adaptAlgo()
 
 def evaluate(user_answer):
     correct_answer = backEndInfo["answer"]
-    user_answer = check_input(user_answer)
-
+    # do not try to evaluate % sign
     user_answer = str(user_answer)
     if '%' in user_answer:
         user_answer = user_answer[:-1]
-    correct_answer = round(float(correct_answer))
+    user_answer = check_input(user_answer)
 
-    print(user_answer)
+    if '.' in correct_answer:
+        if correct_answer.split('.')[1] == '0':
+            correct_answer = round(float(correct_answer))
+        elif '.' in correct_answer:
+            correct_answer = round(float(correct_answer), 2)
+
     user_correct = evaluateAnswer(str(correct_answer), str(user_answer))
 
     index = adapt.getNextQuestion(user_correct)
@@ -207,24 +212,24 @@ def test_info():
     for t in test:
         if t['number'].split('.')[0] == str(1):
             if t['userResult'] == 'Correct':
-                u1_questions_correct+=1
+                u1_questions_correct += 1
             else:
-                u1_questions_incorrect+=1
+                u1_questions_incorrect += 1
         elif t['number'].split('.')[0] == str(2):
             if t['userResult'] == 'Correct':
-                u2_questions_correct+=1
+                u2_questions_correct += 1
             else:
-                u2_questions_incorrect+=1
+                u2_questions_incorrect += 1
         elif t['number'].split('.')[0] == str(4):
             if t['userResult'] == 'Correct':
-                u4_questions_correct+=1
+                u4_questions_correct += 1
             else:
-                u4_questions_incorrect+=1
+                u4_questions_incorrect += 1
 
-    unit_parsed_data = [{"unit": "Unit 1", "numberCorrect": u1_questions_correct, "numberIncorrect": u1_questions_incorrect},
-                        {"unit": "Unit 2", "numberCorrect": u2_questions_correct, "numberIncorrect": u2_questions_incorrect},
-                        {"unit": "Unit 4", "numberCorrect": u4_questions_correct, "numberIncorrect": u4_questions_incorrect}]
-
+    unit_parsed_data = [
+        {"unit": "Unit 1", "numberCorrect": u1_questions_correct, "numberIncorrect": u1_questions_incorrect},
+        {"unit": "Unit 2", "numberCorrect": u2_questions_correct, "numberIncorrect": u2_questions_incorrect},
+        {"unit": "Unit 4", "numberCorrect": u4_questions_correct, "numberIncorrect": u4_questions_incorrect}]
 
     return jsonify(result=unit_parsed_data)
 
