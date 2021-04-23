@@ -25,7 +25,11 @@ function End(){
 
     const chartData=testInfo;
       return (
-          <div className="App">
+        <div className="App">
+          <Link to="/">
+            <button id='backButton'>Quit to Homepage</button>
+          </Link>
+          <br/>
             <Paper>
               <Chart
                   data={chartData}
@@ -52,7 +56,7 @@ function End(){
                 />
               </Chart>
             </Paper>
-          </div>
+        </div>
       );
   }
 
