@@ -37,11 +37,17 @@ function NumberSense(){
         })
         .then(res => res.json())
         .then(data => {
-            setAnswer("")
-            setQuestion(data.question)
-            setNum(data.number)
-            setIsEnd(data.end)
-        })
+            setAnswer("");
+            setQuestion(data.question);
+            setNum(data.number);
+            setIsEnd(data.end);
+            if(data.end == "END"){
+                document.getElementById("Form").style.display = "none";
+                document.getElementById("question").style.display = "none";
+                document.getElementById("questionID").style.display = "none";
+            }
+        });
+
     }
 
     return(
