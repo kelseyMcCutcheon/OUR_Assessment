@@ -169,13 +169,16 @@ adapt = adaptAlgo()
 
 def evaluate(user_answer):
     correct_answer = backEndInfo["answer"]
-    question = backEndInfo["question_for_human"]
+    human_question = backEndInfo["question_for_human"]
+    question = backEndInfo['question']
     # do not try to evaluate % sign
     user_answer = str(user_answer)
 
     if '%' in user_answer:
         user_answer = user_answer[:-1]
-    user_answer = check_input(user_answer)
+    if ('r' or 't') not in question:
+        print(question)
+        user_answer = check_input(user_answer)
 
     if '.' in correct_answer:
         if correct_answer.split('.')[1] == '0':
@@ -183,7 +186,7 @@ def evaluate(user_answer):
         elif '.' in correct_answer:
             correct_answer = round(float(correct_answer), 2)
     # evaluate fraction questions looking for a fraction answer
-    elif 'fraction' in question:
+    elif 'fraction' in human_question:
         correct_answer = float(correct_answer)
         correct_answer = Fraction(correct_answer).limit_denominator()
 
