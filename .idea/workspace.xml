@@ -95,7 +95,7 @@
       <workItem from="1616522035324" duration="14028000" />
       <workItem from="1616642772917" duration="60642000" />
       <workItem from="1617844976006" duration="23826000" />
-      <workItem from="1618167477270" duration="56509000" />
+      <workItem from="1618167477270" duration="57604000" />
     </task>
     <task id="LOCAL-00001" summary="frontend spits out a specificly indexed question from backend">
       <created>1616626888973</created>
@@ -279,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619148922294</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fixed rounding error and % could not eval false error">
+      <created>1619150097329</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1619150097329</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +297,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/react-flask-app" />
     </ignored-roots>
-    <MESSAGE value="something working for backend, its not nice looking but..." />
     <MESSAGE value="frontend talking to backend giving questions and receiving answers, does not evaluate those answers" />
     <MESSAGE value="get questions from iterated csv, still only calls 5 at frontend" />
     <MESSAGE value="get all questions in an array from backend" />
@@ -315,9 +321,10 @@
     <MESSAGE value="simple bar chart working" />
     <MESSAGE value="stacked bar chart implemented, hardcoded unit values" />
     <MESSAGE value="rounding error fixed for whole numbers but not decimals, percentage sign error fixed but still throws could not eval error (still evaluates correctly)" />
-    <option name="LAST_COMMIT_MESSAGE" value="rounding error fixed for whole numbers but not decimals, percentage sign error fixed but still throws could not eval error (still evaluates correctly)" />
+    <MESSAGE value="fixed rounding error and % could not eval false error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed rounding error and % could not eval false error" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/OUR_Assessment$app.coverage" NAME="app Coverage Results" MODIFIED="1619149231204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OUR_Assessment$app.coverage" NAME="app Coverage Results" MODIFIED="1619150977492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for
 import pandas as pd
+from fractions import Fraction
 import json
 from random import randint
 from TestAdaptationAlgorithm import adaptAlgo
@@ -168,8 +169,15 @@ adapt = adaptAlgo()
 
 def evaluate(user_answer):
     correct_answer = backEndInfo["answer"]
+    question = backEndInfo["question_for_human"]
     # do not try to evaluate % sign
     user_answer = str(user_answer)
+
+    # evaluate fraction questions looking for a fraction answer
+    if 'fraction' in question:
+        correct_answer = float(correct_answer)
+        correct_answer = Fraction(correct_answer).limit_denominator()
+
     if '%' in user_answer:
         user_answer = user_answer[:-1]
     user_answer = check_input(user_answer)
