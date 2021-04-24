@@ -7,5 +7,7 @@ ABSTRACT: "We were dissatisfied with the way we, and many young adults around ou
 
 Notes:
 run app.py in our_assessment
+
 in separate terminal cd frontend
+
 yarn start
