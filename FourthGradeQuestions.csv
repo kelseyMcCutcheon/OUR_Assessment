@@ -110,105 +110,51 @@ QuestionID,QuestionType,QuestionFormat,Answer,QuestionForHuman
 8.3.1,,X/Y - 1/Y,(X-1)/Y,What is X/Y - 1/Y?
 8.3.2,,X/Y - Z/Y,(X-Z)/Y,What is X/Y - Z/Y?
 8.3.3,,X/Y - ZW/Y,(X-ZW)/Y,What is X/Y - ZW/Y?
-8.4.1,,,,Write (XY)Z as a mixed number?
-8.4.2,,,,Write (X*Y)/Z as a mixed number?
-8.4.3,,,,Write (X*Y*Z)/W as a mixed number?
-8.5.1,,,,
-8.5.2,,,,
-8.5.3,,,,
-8.6.1,,,,
-8.6.2,,,,
-8.6.3,,,,
-8.7.1,,,,
-8.7.2,,,,
-8.7.3,,,,
-8.8.1,,,,
-8.8.2,,,,
-8.8.3,,,,
-9.1.1,,,,
-9.1.2,,,,
-9.1.3,,,,
-9.2.1,,,,
-9.2.2,,,,
-9.2.3,,,,
-9.3.1,,,,
-9.3.2,,,,
-9.3.3,,,,
-10.1.1,,,,
-10.1.2,,,,
-10.1.3,,,,
-10.2.1,,,,
-10.2.2,,,,
-10.2.3,,,,
-10.3.1,,,,
-10.3.2,,,,
-10.3.3,,,,
-10.4.1,,,,
-10.4.2,,,,
-10.4.3,,,,
-10.5.1,,,,
-10.5.2,,,,
-10.5.3,,,,
-10.6.1,,,,
-10.6.2,,,,
-10.6.3,,,,
-10.7.1,,,,
-10.7.2,,,,
-10.7.3,,,,
-10.8.1,,,,
-10.8.2,,,,
-10.8.3,,,,
-10.9.1,,,,
-10.9.2,,,,
-10.9.3,,,,
-11.1.1,,,,
-11.1.2,,,,
-11.1.3,,,,
-11.2.1,,,,
-11.2.2,,,,
-11.2.3,,,,
-11.3.1,,,,
-11.3.2,,,,
-11.3.3,,,,
-11.4.1,,,,
-11.4.2,,,,
-11.4.3,,,,
-11.5.1,,,,
-11.5.2,,,,
-11.5.3,,,,
-11.6.1,,,,
-11.6.2,,,,
-11.6.3,,,,
-12.1.1,,,,
-12.1.2,,,,
-12.1.3,,,,
-12.2.1,,,,
-12.2.2,,,,
-12.2.3,,,,
-12.3.1,,,,
-12.3.2,,,,
-12.3.3,,,,
-12.4.1,,,,
-12.4.2,,,,
-12.4.3,,,,
-12.5.1,,,,
-12.5.2,,,,
-12.5.3,,,,
-12.6.1,,,,
-12.6.2,,,,
-12.6.3,,,,
-13.1.1,,,,
-13.1.2,,,,
-13.1.3,,,,
-13.2.1,,,,
-13.2.2,,,,
-13.2.3,,,,
-13.3.1,,,,
-13.3.2,,,,
-13.3.3,,,,
-13.4.1,,,,
-13.4.2,,,,
-13.4.3,,,,
-13.5.1,,,,
-13.5.2,,,,
-13.5.3,,,,
+8.4.1,StringEval,(2*Z+1)/Z,2 (1/Z),Write (2*Z+1)/Z as a mixed number?
+8.4.2,StringEval,(X*Z+2)/Z,X (2/Z),Write (X*Z+2)/Z as a mixed number?
+8.4.3,StringEval,(X*Z+3)/Z,X (3/Z),Write (X*Z+3)/Z as a mixed number?
+8.5.1,StringEval,X,(2*X)/2,Write X as a fraction with denominator 2.
+8.5.2,StringEval,X (Y/3),(X*3 +Y)/3,Write X (Y/2) as an improper fraction.
+8.5.3,StringEval,X (Y/Z),,Write X (Y/Z) as an improper fraction.
+9.1.1,math,X/2 1/2,(X/2)*(1/2),Multiply X/2 by 1/2.
+9.1.2,math,X/2 Y/Z,(X/2)*(Y/Z),Multiple X/2 by Y/Z.
+9.1.3,math,X/Y Z/W,(X/Y)*(Z/W),Multiply X/Y by Z/W.
+9.2.1,math,X/2 * 2,X,Multiply X/2 by 2.
+9.2.2,math,X/Z * 3,(X/Z)*3,Multiply X/Z by 3.
+9.2.3,math,X/Y * Z,(X/Y)*Z,Multiply X/Y by Z.
+9.3.1,math,X/2 * 2(1/2),X/2 * 2(1/2),Multiply X/2 by 2(1/2).
+9.3.2,math,X/Y * Z(1/Y),X/Y * Z(1/Y),Multiply X/Y by Z(1/Y).
+9.3.3,math,X/Y * Z(W/V),X/Y * Z(W/V),Multiply X/Y by Z(W/V).
+10.1.1,StringEval,0.X,X/10,Write 0.X as a fraction over 10.
+10.1.2,StringEval,0.XY,XY/100,Write 0.XY as a fraction over 100.
+10.1.3,StringEval,0.XY,XY/100,Write 0.XY as a fraction over 100.
+10.2.1,StringEval,1/XY,0.XY,Write 1/XY as a decimal.
+10.2.2,StringEval,1/X,0.X,Write 1/X as a decimal.
+10.2.3,StringEval,1/XYZ,0.XYZ,Write 1/XYZ as a decimal.
+10.3.1,StringEval,0.X and 0.XY,<,Is 0.X >,<,=, 0.XY?
+10.3.2,StringEval,0.XY and 0.X0Y,>,Is 0.X >,<,=, 0.XY?
+10.3.3,StringEval,0.0XYY and 0.0XY0,>,Is 0.X >,<,=, 0.XY?
+11.1.1,Image,Image,Image,What type of shape is this?
+11.1.2,Image,Image,Image,What type of shape is this?
+11.1.3,Image,Image,Image,What type of shape is this?
+11.2.1,Image,Image,Image,Is this a line, line segment or ray?
+11.2.2,Image,Image,Image,Is this a line, line segment or ray?
+11.2.3,Image,Image,Image,Is this a line, line segment or ray?
+11.3.1,Image,Image,Image,Are this lines parallel?
+11.3.2,Image,Image,Image,Are this lines parallel?
+11.3.3,Image,Image,Image,Are this lines parallel?
+11.4.1,Image,Image,Image,Are this lines perpendicular?
+11.4.2,Image,Image,Image,Are this lines perpendicular?
+11.4.3,Image,Image,Image,Are this lines perpendicular?
+11.5.1,Image,Image,Image,What type of triangle is this?
+11.5.2,Image,Image,Image,What type of triangle is this?
+11.5.3,Image,Image,Image,What type of triangle is this?
+12.1.1,Image,Image,Image,What type of angle is this?
+12.1.2,Image,Image,Image,What is the name of this angle?
+12.1.3,Image,Image,Image,What is the name of this angle?
+12.2.1,Image,Image,Image,What is the name of this angle?
+12.2.2,Image,Image,Image,What type of angle is this?
+12.2.3,Image,Image,Image,What type of angle is this?
+12.3.1,Image,Image,Image,Estimate the measurement of this angle?
+12.3.2,Image,Image,Image,Estimate the measurement of this angle?
+12.3.3,Image,Image,Image,Estimate the measurement of this angle?
