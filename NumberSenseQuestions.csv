@@ -5,18 +5,18 @@ QuestionID,QuestionType,QuestionFormat,Answer,QuestionD1,QuestionD1Answers,diffi
 1.2.1,math,-X-4,-X-4,-6-4,-6-4,easy,What is XX equal to?
 1.2.2,math,-X+-Y,-X+-Y,-10+-3,-10+-3,medium,What is XX equal to?
 1.2.3,math,-X-(-Y),-X-(-Y),-3-(-4),-3-(-4),hard,What is XX equal to?
-1.3.1,math,X*-1,X*-1,6*-1,6*-1,easy,What is XX equal to?
-1.3.2,math,X*-Y,X*-Y,3*-4,3*-4,medium,What is XX equal to?
-1.3.3,math,-X*-Y,-X*-Y,-6*-5,-6*-5,hard,What is XX equal to?
+1.3.1,math,X*-1,X*-1,6*-1,-6,easy,What is XX equal to?
+1.3.2,math,X*-Y,X*-Y,3*-4,-12,medium,What is XX equal to?
+1.3.3,math,-X*-Y,-X*-Y,-6*-5,30,hard,What is XX equal to?
 1.4.1,math,X/-1,X/-1,4/-1,4/-1,easy,What is XX equal to?
 1.4.2,math,-X/-1,-X/-1,-6/-1,-6/-1,medium,What is XX equal to?
 1.4.3,math,-X/Y,-X/Y,-8/2,-8/2,hard,What is XX equal to?
 2.1.1,math,1/X,(1/X)*100,1/2,1/2*100,easy,What is XX as a percentage?
 2.1.2,math,XY/100,XY,58/100,58/100*100,medium,What is XX as a percentage?
 2.1.3,math,X/Y,(X/Y)*100,17/5,17/5*100,hard,What is XX as a percentage?
-2.2.1,math,0.X,0.X," 0.5",0.5*10,easy,What is XX as a fraction?
-2.2.2,math,0.YX,0.YX,0.75,0.75*100,medium,What is XX as a fraction?
-2.2.3,math,1.XY,1.XY,1.25,1.25*5,hard,What is XX as a fraction?
+2.2.1,math,0.X,0.X," 0.5",5/10,easy,What is XX as a fraction?
+2.2.2,math,0.YX,0.YX,0.75,75/100,medium,What is XX as a fraction?
+2.2.3,math,1.XY,1.XY,1.25,125/100,hard,What is XX as a fraction?
 2.3.1,math,0.X,(0.X)*100,0.5,0.5*100,easy,What is XX as a percentage?
 2.3.2,math,0.X5,(0.X5)*100,0.45,0.45*100,medium,What is XX as a percentage?
 2.3.3,math,1.XY,(1.XY)*100,1.38,1.38*100,hard,What is XX as a percentage?
@@ -31,7 +31,7 @@ QuestionID,QuestionType,QuestionFormat,Answer,QuestionD1,QuestionD1Answers,diffi
 2.6.3,math,XYZ%,XYZ/100,433%,433/100,hard,What is XX as a decimal?
 4.1.1,stringEval,Xr+Yr,$X+Y;r,5r+8r,13r,easy,Combine the like terms in XX to create an equivalent expression
 4.1.2,stringEval,-Xr+Yr+Z,$-X+Y;r+Z,-8r+9r+6,r+6,medium,Combine the like terms in XX to create an equivalent expression
-4.1.3,stringEval,-Xr-Yr+Z-W,$-X-Y;r+;$12-3,-5r-6r+12-3,11r+9,hard,Combine the like terms in XX to create an equivalent expression
+4.1.3,stringEval,-Xr-Yr+Z-W,$-X-Y;r+;$Z-W,-5r-6r+12-3,11r+9,hard,Combine the like terms in XX to create an equivalent expression
 4.2.1,stringEval,Xr+(2X)r,X(r+2),6r+12,6(r+2),easy,Which expression is equivalent to XX?
-4.2.2,stringEval,X(r+Yt),Xr+$X*Y;t,5(r+2t),5r+10t,medium,Which expression is equivalent to XX?
-4.2.3,stringEval,X(r+Yt+Z)-Wr,$X-W;r+$X*Y;t+$X*Z;,5(r+2t+4)-3r,2r+10t+20,hard,Which expression is equivalent to XX?
+4.2.2,stringEval,X(r+Yt),Xr+;$X*Y;t,5(r+2t),5r+10t,medium,Which expression is equivalent to XX?
+4.2.3,stringEval,X(r+Yt+Z)-Wr,$X-W;r+;$X*Y;t+;$X*Z,5(r+2t+4)-3r,2r+10t+20,hard,Which expression is equivalent to XX?

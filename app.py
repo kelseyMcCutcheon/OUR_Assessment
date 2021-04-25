@@ -38,7 +38,7 @@ def index():
     return render_template('index.html')
 '''
 
-
+#places the mathematical question into a "human readable" one for the user
 def replaceForHuman(forHuman, question) -> str:
     if "XX" in forHuman:
         return forHuman.replace("XX", question)
@@ -47,7 +47,7 @@ def replaceForHuman(forHuman, question) -> str:
         return question
 
 
-# randomly generate numbers for variables
+# randomly generates numbers for the variables dictionary
 def newVariables(rangeMin=1, rangeMax=9) -> dict:
     for x in variables:
         newInt = randint(rangeMin, rangeMax)
@@ -58,7 +58,7 @@ def newVariables(rangeMin=1, rangeMax=9) -> dict:
     # print(variables)
     return variables
 
-
+#splits a string on ";" and only evaluates parts marked with a "$"
 def evalString(question) -> str:
     result = ""
     parts = question.split(";")
@@ -70,14 +70,15 @@ def evalString(question) -> str:
         result += tmp
     return result
 
-
+#Replaces the variables in a question/answer with the ones in the variable dictionary
 def replaceVariables(question) -> str:
     for x in variables:
         if x in question:
             question = question.replace(x, str(variables[x]))
     return question
 
-
+#evaluates the users answer against the "correct answer" and returns a boolean
+#(true for correct false for incorrect)
 def evaluateAnswer(correctAnswer, userAnswer) -> bool:
     if userAnswer == correctAnswer:
         print("CORRECT!")
@@ -90,7 +91,8 @@ def evaluateAnswer(correctAnswer, userAnswer) -> bool:
         test.append({'number': backEndInfo['question_id'], 'userResult': 'Incorrect'})
         return False
 
-
+#since we are generating questions we need to evaluate the answer to those questions as well.
+#we only have 2 types of questions at the moment, each require different ways of evaluating them
 def evaluateQuestionAnswer(answer, type) -> str:
     if type == "math":
         return eval(answer)
@@ -99,7 +101,7 @@ def evaluateQuestionAnswer(answer, type) -> str:
     else:
         return "UNKNOWN TYPE"
 
-
+#automates the process of setting up a new question for the frontend. takes the index of the next question
 def setUpNewQuestion(index):
     newVariables()
 
@@ -140,7 +142,8 @@ def questionOne():
     info["number"] = backEndInfo["question_id"]
     return info
 
-
+# gets the users answer from the front end and passes it to our evaluate function
+# If the user is at the end of the test then they are sent the END tag
 @app.route('/answer', methods=['GET', 'POST'])
 def answer():
     frontInfo = json.loads(request.data)
@@ -150,12 +153,12 @@ def answer():
     else:
         return {'answer': frontInfo["answer"], 'question': str(newInfo['question']), 'number': str(newInfo['num'])}
 
-
+# gets the human readable question for the front end
 @app.route('/question', methods=['GET', 'POST'])
 def question():
     return {'result': backEndInfo["question_for_human"]}
 
-
+# tries to evaluate the answer given by the user
 def check_input(ans):
     try:
         ans = eval(ans)
@@ -166,7 +169,8 @@ def check_input(ans):
 
 adapt = adaptAlgo()
 
-
+# takes users answer, evaluates it and stores if its correct as well as
+# returns the next question for the user
 def evaluate(user_answer):
     correct_answer = backEndInfo["answer"]
     human_question = backEndInfo["question_for_human"]
